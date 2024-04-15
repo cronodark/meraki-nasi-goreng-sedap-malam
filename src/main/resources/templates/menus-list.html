@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thmyelead.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:each="menu : ${menus}">
+        <p th:text="${menu.nama}"></p>
+        <p th:text="${menu.deskripsi}"></p>
+        <p th:text="${menu.harga}"></p>
+        <img th:src="${menu.photoUrl}" alt="no-pict">
+    </div>
+</body>
+</html>
