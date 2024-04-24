@@ -12,7 +12,7 @@ import java.util.List;
 @Controller
 public class MenuController {
     private MenuService menuService;
-
+    public int radit;
     @Autowired
     public MenuController(MenuService menuService) {
         this.menuService = menuService;
