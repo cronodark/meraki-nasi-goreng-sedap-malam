@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thmyelead.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Menu</title>
+</head>
+<body>
+    <form role="form" method="post" th:action="@{/menu/{menuId}/edit(menuId=${menu.id})}" th:object="${menu}">
+        <input type="hidden" th:field="*{id}" readonly>
+        <label for="namaMenu">Nama Menu</label>
+        <input type="text" th:field="*{nama}" id="namaMenu" name="namaMenu" required>
+        <img th:src="*{photoUrl}" alt="foto-menu" width="100%">
+        <label for="hargaMenu">Harga</label>
+        <input type="number" th:field="*{harga}" id="hargaMenu" name="hargaMenu">
+        <label for="deskripsiMenu">Deskripsi</label>
+        <input type="text" th:field="*{deskripsi}" id="deskripsiMenu" name="deskripsiMenu">
+        <button type="submit">Simpan</button>
+    </form>
+</body>
+</html>

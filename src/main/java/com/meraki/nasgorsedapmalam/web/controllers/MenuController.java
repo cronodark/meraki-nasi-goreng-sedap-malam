@@ -11,18 +11,16 @@ import java.util.List;
 
 @Controller
 public class MenuController {
-    private MenuService menuService;
+    // private MenuService menuService;
 
-    @Autowired
-    public MenuController(MenuService menuService) {
-        this.menuService = menuService;
-    }
+    // public MenuController(MenuService menuService) {
+    //     this.menuService = menuService;
+    // }
 
-    @GetMapping("/menu")
-    public String listMenu(Model model){
-        List<MenuDto> menus = menuService.findAllMenus();
-        model.addAttribute("menus", menus);
-        return "menus-list";
-    }
-
+    // @GetMapping("/menu")
+    // public String listMenu(Model model){
+    //     List<MenuDto> menus = menuService.findAllMenus();
+    //     model.addAttribute("menus", menus);
+    //     return "menus-list";
+    // }
 }
