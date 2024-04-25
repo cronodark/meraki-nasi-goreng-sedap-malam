@@ -24,6 +24,42 @@ public class MenuServiceImpl implements MenuService { //implementasi dari servic
         return menus.stream().map((menu) -> mapToMenuDto(menu)).collect(Collectors.toList());
     }
 
+    @Override
+    public Menu saveMenu(Menu menu){
+        return menuRepository.save(menu);
+    }
+
+    @Override
+    public MenuDto findMenuById(int menuId) {
+        Menu menu = menuRepository.findById(menuId).get();
+        return mapToMenuDto(menu);
+    }
+
+    @Override
+    public void updateMenu(MenuDto menuDto) {
+        Menu menu = mapToMenu(menuDto);
+        menuRepository.save(menu);
+    }
+
+    @Override
+    public void delete(int menuId) {
+        menuRepository.deleteById(menuId);
+    }
+
+    private Menu mapToMenu(MenuDto menu) {
+        Menu menuDto = Menu.builder()
+                .id(menu.getId())
+                .nama(menu.getNama())
+                .photoUrl(menu.getPhotoUrl())
+                .harga(menu.getHarga())
+                .deskripsi(menu.getDeskripsi())
+                .createdOn(menu.getCreatedOn())
+                .updatedOn(menu.getUpdatedOn())
+                .build();
+
+        return menuDto;
+    }
+
     private MenuDto mapToMenuDto(Menu menu){ //menerjemahkan dari class menu ke class menuDto
         MenuDto menuDto = MenuDto.builder()
                 .id(menu.getId())
