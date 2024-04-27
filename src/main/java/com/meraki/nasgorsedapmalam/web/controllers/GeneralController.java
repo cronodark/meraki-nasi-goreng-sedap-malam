@@ -24,8 +24,8 @@ public class GeneralController {
     public String index(Model model) {
         List<MenuDto> menus = menuService.findAllMenus();
         model.addAttribute("menus", menus);
-        return "menus-list";
-        // return "index";
+        //return "menus-list";
+        return "index";
     }
 
     //    detail menu
