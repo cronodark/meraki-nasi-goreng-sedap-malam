@@ -9,7 +9,7 @@
         <p th:text="${menu.nama}"></p>
         <p th:text="${menu.deskripsi}"></p>
         <p th:text="${menu.harga}"></p>
-        <img th:src="${menu.photoUrl}" alt="no-pict">
+        <img th:src="@{/images/menu/{menuId}/{photoUrl}(menuId=${menu.id}, photoUrl=${menu.photoUrl})}" alt="no-pict">
         <a th:href="@{/menu/{menuId}/edit(menuId=${menu.id})}">Edit</a>
         <a th:href="@{/menu/{menuId}/delete(menuId=${menu.id})}">Delete</a>
     </div>

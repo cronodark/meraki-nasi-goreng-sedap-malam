@@ -3,18 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit Menu</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <form role="form" method="post" th:action="@{/menu/{menuId}/edit(menuId=${menu.id})}" th:object="${menu}">
+    <form role="form" method="post" th:action="@{/menu/{menuId}/edit(menuId=${menu.id})}" th:object="${menu}" enctype="multipart/form-data">
         <input type="hidden" th:field="*{id}" readonly>
-        <label for="namaMenu">Nama Menu</label>
-        <input type="text" th:field="*{nama}" id="namaMenu" name="namaMenu" required>
-        <img th:src="*{photoUrl}" alt="foto-menu" width="100%">
-        <label for="hargaMenu">Harga</label>
-        <input type="number" th:field="*{harga}" id="hargaMenu" name="hargaMenu">
-        <label for="deskripsiMenu">Deskripsi</label>
-        <input type="text" th:field="*{deskripsi}" id="deskripsiMenu" name="deskripsiMenu">
-        <button type="submit">Simpan</button>
+        <p>
+            <label for="namaMenu">Nama Menu</label>
+            <input type="text" th:field="*{nama}" id="namaMenu" name="namaMenu" required>
+        </p>
+        <p>
+            <img th:src="@{/images/menu/{menuId}/{photoUrl}(menuId=*{id}, photoUrl=*{photoUrl})}" id="thumbnail" alt="no-pict">
+            <input type="file" id="newPhoto" name="newPhoto" accept="image/jpeg, image/png">
+            <input type="hidden" name="oldPhoto" th:field="*{photoUrl}">
+        </p>
+        <p>
+            <label for="hargaMenu">Harga</label>
+            <input type="number" th:field="*{harga}" id="hargaMenu" name="hargaMenu">
+        </p>
+        <p>
+            <label for="deskripsiMenu">Deskripsi</label>
+            <input type="text" th:field="*{deskripsi}" id="deskripsiMenu" name="deskripsiMenu">
+        </p>
+        <p>
+            <button type="submit">Simpan</button>
+        </p>
+
     </form>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#newPhoto').change(function () {
+                ShowImageThumbnail(this);
+            });
+        });
+        function ShowImageThumbnail(fileInput){
+            file = fileInput.files[0];
+            reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#thumbnail').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(file)
+        }
+    </script>
 </body>
 </html>

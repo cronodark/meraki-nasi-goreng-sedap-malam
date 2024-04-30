@@ -2,6 +2,7 @@ package com.meraki.nasgorsedapmalam.web.services;
 
 import com.meraki.nasgorsedapmalam.web.dto.MenuDto;
 import com.meraki.nasgorsedapmalam.web.models.Menu;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 

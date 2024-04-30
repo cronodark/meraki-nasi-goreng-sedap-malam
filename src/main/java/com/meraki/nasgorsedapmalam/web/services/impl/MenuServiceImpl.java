@@ -5,6 +5,7 @@ import com.meraki.nasgorsedapmalam.web.models.Menu;
 import com.meraki.nasgorsedapmalam.web.repository.MenuRepository;
 import com.meraki.nasgorsedapmalam.web.services.MenuService;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 
 import java.util.List;

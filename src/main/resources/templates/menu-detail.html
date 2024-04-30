@@ -7,9 +7,9 @@
 <body>
     <center>
         <h1 th:text="${menu.nama}"></h1>
-        <img th:src="${menu.photoUrl}">
+        <img th:src="@{/images/menu/{idMenu}/{photoUrl} (idMenu = ${menu.id}, photoUrl = ${menu.photoUrl})}">
         <h4 th:text="${menu.harga}"></h4>
-        <p th:text="${menu.deskripsi}">as</p>
+        <p th:text="${menu.deskripsi}"></p>
     </center>
 </body>
 </html>

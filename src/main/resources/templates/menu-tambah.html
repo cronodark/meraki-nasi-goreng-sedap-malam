@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thmyelead.org">
-<head>
+<head >
     <meta charset="UTF-8">
     <title>Tambah Menu</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <form role="form" method="post" th:action="@{/tambah-menu}" th:object="${menu}">
+    <form role="form" method="post" th:action="@{/tambah-menu}" th:object="${menu}" enctype="multipart/form-data">
         <label for="namaMenu">Nama Menu</label>
         <input type="text" th:field="*{nama}" id="namaMenu" name="namaMenu">
-        <label for="gambarMenu">Gambar</label>
-        <input type="file" th:field="*{photoUrl}" id="gambarMenu" name="gambarMenu" accept="image/png, image/jpeg">
+        <label for="gambarfile">Gambar</label>
+        <input type="file" id="gambarfile" name="gambarfile" accept="image/jpeg, image/png">
+        <img id="thumbnail" alt="Preview gambar">
         <label for="hargaMenu">Harga</label>
         <input type="number" th:field="*{harga}" id="hargaMenu" name="hargaMenu">
         <label for="deskripsiMenu">Deskripsi</label>
         <input type="text" th:field="*{deskripsi}" id="deskripsiMenu" name="deskripsiMenu">
         <button type="submit">Simpan</button>
     </form>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#gambarfile').change(function () {
+                ShowImageThumbnail(this);
+            });
+        });
+        function ShowImageThumbnail(fileInput){
+            file = fileInput.files[0];
+            reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#thumbnail').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(file)
+        }
+    </script>
 </body>
 </html>
