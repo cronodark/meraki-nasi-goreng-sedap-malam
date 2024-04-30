@@ -1,0 +1,69 @@
+body {
+    background-image: url("/src/main/resources/static/assets/img/pattern bg.png"); /* Ganti 'path-to-your-image.jpg' dengan path gambar Anda */
+    background-size: cover; /* Untuk memastikan gambar sesuai dengan ukuran layar */
+    background-repeat: no-repeat; /* Mencegah gambar berulang */
+    background-attachment: fixed; /* Membuat gambar tetap pada posisi yang sama saat menggulir */
+    background-position: center; /* Menetapkan posisi gambar ke tengah */
+    height: 100%; /* Mengisi seluruh tinggi layar */
+    width: 100%;
+    margin: 0; /* Menghilangkan margin */
+    justify-content: center;
+    align-items: center;
+    font-size: 24px; /* Ukuran font */
+}
+
+
+h1 {
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #567C4F;
+     color:transparent;
+     font-size: 64px;
+     text-transform: uppercase;
+  }
+
+.square { 
+    padding: 0% !important;
+    border-radius: 10px;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.15);
+    width: 55;
+    height: 650;
+}
+
+.persegi{
+    border-radius: 10px;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+.segi{
+    border-radius: 10px;
+}
+
+.segikuning{ 
+    border-radius: 10px;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.15);
+    background-color: #DEAA45;
+    backdrop-filter: blur(23px);
+    position: absolute;
+    z-index: 1;
+    height: 58px;
+    width: 313px;
+    
+}
+
+.no-border {
+    border:  none !important;
+}
+
+/*Menu*/
+
+.menu-content{
+    font-size: 16px;
+    color: #FFFFFF;
+    text-align: start;
+}
+
+.menu-content-price{
+    font-size: 16px;
+    color: #FFFFFF;
+    text-align: end;
+}
