@@ -44,14 +44,6 @@ public class AdminController {
         return "menu-tambah";
     }
 
-//    @PostMapping("/tambah-menu")
-//    public String storeMenu(@ModelAttribute("menu") Menu menu){
-//        menuService.saveMenu(menu);
-//
-//
-//        return "redirect:/";
-//    }
-
     @PostMapping("/tambah-menu")
     public String storeMenu(@ModelAttribute("menu") Menu menu, @RequestParam("gambarfile") MultipartFile multipartFile) throws IOException {
 
