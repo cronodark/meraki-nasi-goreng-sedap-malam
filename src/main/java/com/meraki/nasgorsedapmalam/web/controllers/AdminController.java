@@ -67,7 +67,7 @@ public class AdminController {
             throw new IOException("Tidak bisa menyimpan gambar yang dikirim: " + fileName);
         }
 
-        return "redirect:/";
+        return "redirect:/menu";
     }
 
 
