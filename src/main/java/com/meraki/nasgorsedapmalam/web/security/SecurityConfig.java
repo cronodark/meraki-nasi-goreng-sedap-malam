@@ -37,7 +37,7 @@ public class SecurityConfig{
         http.csrf().disable()
                 .authorizeRequests()
                 .requestMatchers("/login", "/register", "/", "/menu/{idMenu}", "/menu").permitAll()
-                .requestMatchers("/assets/**").permitAll()
+                .requestMatchers("/assets/**", "/images/**").permitAll()
                 .requestMatchers("/menu/{menuId}/delete", "/menu/{menuId}/edit", "/tambah-menu").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()

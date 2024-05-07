@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Detail Menu</title>
@@ -10,6 +12,13 @@
         <img th:src="@{/images/menu/{idMenu}/{photoUrl} (idMenu = ${menu.id}, photoUrl = ${menu.photoUrl})}">
         <h4 th:text="${menu.harga}"></h4>
         <p th:text="${menu.deskripsi}"></p>
+        <div sec:authorize="hasRole('ADMIN')">
+            <a th:href="@{/menu/{menuId}/edit(menuId=${menu.id})}">Edit</a>
+            <a th:href="@{/menu/{menuId}/delete(menuId=${menu.id})}">Delete</a>
+        </div>
+        <div sec:authorize="hasRole('MEMBER')">
+            <a href="#">Give some rating</a>
+        </div>
     </center>
 </body>
 </html>
