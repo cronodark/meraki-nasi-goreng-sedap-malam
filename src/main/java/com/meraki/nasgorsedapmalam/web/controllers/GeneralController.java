@@ -2,6 +2,8 @@ package com.meraki.nasgorsedapmalam.web.controllers;
 
 import java.util.List;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,8 +26,17 @@ public class GeneralController {
     public String index(Model model) {
         List<MenuDto> menus = menuService.findAllMenus();
         model.addAttribute("menus", menus);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println(authentication);
+
+        return "index";
+    }
+
+    @GetMapping("/menu")
+    public String menu(Model model) {
+        List<MenuDto> menus = menuService.findAllMenus();
+        model.addAttribute("menus", menus);
         return "menus-list";
-        // return "index";
     }
 
     //    detail menu

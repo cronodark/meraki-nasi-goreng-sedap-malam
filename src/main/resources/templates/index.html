@@ -1,5 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+ <!DOCTYPE html>
+<html lang="en"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+      xmlns:th="http://www.thymeleaf.org"
+>
 
 <head>
   <!-- Required meta tags -->
@@ -12,6 +15,7 @@
 
   <!-- CSS -->
   <link href="assets/css/style.css" rel="stylesheet" />
+
 
   <title>
     Nasi Goreng Sedap Malam Jembatan
@@ -45,6 +49,13 @@
           <li class="nav-item">
             <a class="nav-link" href="#kontak">Kontak</a>
           </li>
+          <li class="nav-item" sec:authorize="!isAuthenticated()">
+            <a class="nav-link" th:href="@{/login}">Login</a>
+          </li>
+          <li class="nav-item" sec:authorize="isAuthenticated()">
+            <a class="nav-link" th:href="@{/logout}">Logout</a>
+          </li>
+          </li>
         </ul>
         </li>
         </ul>
@@ -52,7 +63,10 @@
     </div>
   </nav>
 
+
   <!-- Home -->
+
+
   <section id="home">
     <div class="container">
       <div class="row">
@@ -73,6 +87,7 @@
                 style="margin-top: 7px;margin-left: 10px; font-family: Poppins; font-size: 30px;">Serve Our Best</p1>
             </div>
           </div>
+
           <div class="segikuning" style="margin-top: 400px; margin-left: 400px; width: 235px; height: 58px;">
             <div class="mb-2 d-flex flex-row">
               <img th:src="@{assets/img/nasi.png}" alt="icon"
@@ -80,6 +95,11 @@
                 class=" d-flex justify-content-start image1">
               <p1 class="d-flex justify-content-center"
                 style="margin-top: 7px;margin-left: 10px; font-family: Poppins; font-size: 30px;">Since 2013</p1>
+
+          <div class="segikuning" style="opacity: 40%; margin-top: 400px; margin-left: 400px;">
+            <div class=" d-flex justify-content-center">
+              <b>teste</b>
+
             </div>
           </div>
           <div class="persegi" style="margin-top: 110px; background-color: #567C4F; height: 466px; width: 486px;">
@@ -98,8 +118,9 @@
           </div>
         </div>
       </div>
-      <div class="container-fluid text-center">
+      <div class="container-fluid text-center" style="margin-bottom: 80px;">
         <div class="row justify-content-center">
+
           <div class="col-5 bg-white mt-5 square">
             <div class="d-flex justify-content-center align-items-center">
               <p class="fs-3" style="font-family: PRIMETIME; color: #567C4F; margin-top: 10px;">RASA, </p>
@@ -527,13 +548,74 @@
                   <img src="assets/img/maps.png" alt="maps" class="imagemaps">
                 </a>
               </div>
+
+          <div class="col-5 align-self-center align-items-center bg-white mt-5 square">
+            <div class="d-flex justify-content-center">
+              <p class="fs-3" style="font-family: PRIMETIME; color: #567C4F;">RASA, </p>
+              <p class="fs-3" style="font-family: PRIMETIME; color: #E53A30">AROMA, </p>
+              <p class="fs-3" style="font-family: PRIMETIME; color: #E0B152;">TRADISI</p>
+
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
   <!-- Tentang -->
+
+
+  <section id="menu">
+    <div class="container text-center">
+      <div class="row">
+          <h2 class="col" style="font-family: poppins; margin-top: 108px;">Menu</h2>
+      </div>
+      <div class="row">
+          <div class="d-flex justify-content-center">
+            <div class="segi" style="margin-top: 1px; height: 7px; width: 90px; background-color: #E53A30;"></div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="d-flex justify-content-center">
+          </div>
+      </div>
+      <div class="row">
+          <div class="col">
+            <div class="segi" style="margin-top: 70px; height: 400px; width: 274px; background-color: #E53A30;">
+              <div class="d-flex justify-content-center">
+                  <div class="segi" style="height: 300px; width: 274px; background-color: #E0B152; margin-top: 106px;">
+                    <div class="d-flex justify-content-center">
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="d-flex justify-content-center">
+          <div class="segi" style="margin-top: 32px; height: 198px; width: 341px; background-color: #E0B152;">
+            <h3 style="margin-top: 25px;">Menu Tambahan</h3>
+              <div class="container" style="margin-top: 25px;">
+                <div class="row">
+                  <div class="col-7 menu-content">Telur diceplok/didadar</div>
+                  <div class="col menu-content-price">+ 1.000</div>
+                </div>
+                <div class="row">
+                  <div class="col-7 menu-content">Tambah telur</div>
+                  <div class="col menu-content-price">+ 4.000</div>
+                </div>
+                <div class="row">
+                  <div class="col-7 menu-content">Ati Ampela</div>
+                  <div class="col menu-content-price">+ 4.000</div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+  </div>
+    </div>
+  </section>
+
 
   <!-- Kontak -->
   <section id="kontak" class="text-center">

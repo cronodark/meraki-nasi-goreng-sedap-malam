@@ -5,14 +5,18 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
+import jakarta.validation.constraints.NotEmpty;
+
 @Data
 @Builder
 public class UserDto {
     private int id;
-    private String nama;
+    private String name;
+    @NotEmpty(message = "Username harus diisi!")
+    private String username;
+    @NotEmpty(message = "Password harus diisi!")
+    private String password;
     private String email;
-    private char jk;
-    private String role;
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
 }

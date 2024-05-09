@@ -15,6 +15,7 @@ body {
     width: 100%;
 }
 
+
 h1 {
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #567C4F;
@@ -23,7 +24,7 @@ h1 {
      text-transform: uppercase;
   }
 
-  .square { 
+.square { 
     padding: 0% !important;
     border-radius: 10px;
     box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.15);
@@ -53,6 +54,7 @@ h1 {
 .no-border {
     border:  none !important;
 }
+
 
 .image1{
     opacity: 100% !important;
@@ -233,4 +235,18 @@ p{
   border-radius: 50px 50px 0px 0px;
   background: #FFF;
   box-shadow: 20px -20px 40px 0px rgba(0, 0, 0, 0.08);
+
+/*Menu*/
+
+.menu-content{
+    font-size: 16px;
+    color: #FFFFFF;
+    text-align: start;
+}
+
+.menu-content-price{
+    font-size: 16px;
+    color: #FFFFFF;
+    text-align: end;
+
 }
