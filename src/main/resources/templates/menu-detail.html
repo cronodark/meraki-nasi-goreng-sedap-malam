@@ -5,9 +5,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Detail Menu</title>
+    <link rel="stylesheet" th:href="@{/assets/css/rating.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <center>
+        <input type="hidden" name="menuID" id="menuId" th:value="${menu.id}">
         <h1 th:text="${menu.nama}"></h1>
         <img th:src="@{/images/menu/{idMenu}/{photoUrl} (idMenu = ${menu.id}, photoUrl = ${menu.photoUrl})}">
         <h4 th:text="${menu.harga}"></h4>
@@ -17,8 +22,33 @@
             <a th:href="@{/menu/{menuId}/delete(menuId=${menu.id})}">Delete</a>
         </div>
         <div sec:authorize="hasRole('MEMBER')">
-            <a href="#">Give some rating</a>
+            <div class="container d-flex justify-content-center mt-200">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="stars">
+                            <form role="form" method="post" id="ratingForm" th:action="@{/rating}" th:object="${rating}">
+                                <input id="ratingMenuId" name="ratingMenuId" th:field="*{idMenu}" type="hidden">
+                                <input id="ratingValue" name="ratingValue" th:field="*{rating}" type="hidden">
+                                <input class="star star-5" id="star-5" type="radio" name="star" data-value="5"/>
+                                <label class="star star-5" for="star-5"></label>
+                                <input class="star star-4" id="star-4" type="radio" name="star" data-value="4"/>
+                                <label class="star star-4" for="star-4"></label>
+                                <input class="star star-3" id="star-3" type="radio" name="star" data-value="3"/>
+                                <label class="star star-3" for="star-3"></label>
+                                <input class="star star-2" id="star-2" type="radio" name="star" data-value="2"/>
+                                <label class="star star-2" for="star-2"></label>
+                                <input class="star star-1" id="star-1" type="radio" name="star" data-value="1"/>
+                                <label class="star star-1" for="star-1"></label>
+                                <button class="btn btn-success" type="submit" id="saveRating" name="saveRating">Kirim</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </center>
+    <script th:src="@{/assets/js/rating.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
