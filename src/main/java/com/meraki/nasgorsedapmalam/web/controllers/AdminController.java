@@ -79,6 +79,7 @@ public class AdminController {
 
         model.addAttribute("menu", menu);
 
+
         return "menu-edit";
     }
 
