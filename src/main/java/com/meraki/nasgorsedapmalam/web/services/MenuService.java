@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface MenuService {
     List<MenuDto> findAllMenus();
+    List<MenuDto> findAllMenusWithRatings();
     Menu saveMenu(Menu menu);
     MenuDto findMenuById(int menuId);
 

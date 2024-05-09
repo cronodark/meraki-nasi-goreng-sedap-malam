@@ -2,27 +2,61 @@ package com.meraki.nasgorsedapmalam.web.services.impl;
 
 import com.meraki.nasgorsedapmalam.web.dto.MenuDto;
 import com.meraki.nasgorsedapmalam.web.models.Menu;
+import com.meraki.nasgorsedapmalam.web.models.Rating;
 import com.meraki.nasgorsedapmalam.web.repository.MenuRepository;
+import com.meraki.nasgorsedapmalam.web.repository.RatingRepository;
 import com.meraki.nasgorsedapmalam.web.services.MenuService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class MenuServiceImpl implements MenuService { //implementasi dari service
     private MenuRepository menuRepository;
+    private RatingRepository ratingRepository;
 
-    public MenuServiceImpl(MenuRepository menuRepository) {
-        this.menuRepository = menuRepository; //constructor
+    //constructor
+    public MenuServiceImpl(MenuRepository menuRepository, RatingRepository ratingRepository) {
+        this.menuRepository = menuRepository;
+        this.ratingRepository = ratingRepository;
     }
 
     @Override
     public List<MenuDto> findAllMenus() {
         List<Menu> menus = menuRepository.findAll(); //mencari seluruh menu
         return menus.stream().map((menu) -> mapToMenuDto(menu)).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<MenuDto> findAllMenusWithRatings() {
+        List<Menu> menus = menuRepository.findAll();
+        List<MenuDto> menuDtos = new ArrayList<>();
+
+        for (Menu menu : menus) {
+            List<Rating> ratings = ratingRepository.findByIdMenu(menu.getId());
+            System.out.println(ratings);
+            double ratingValue = 0.0;
+            int ratingCount = 0;
+
+            if (ratings.size() > 0) {
+                for (Rating rating : ratings) {
+                    ratingValue += rating.getRating();
+                }
+                ratingCount = ratings.size();
+                ratingValue = ratingValue / ratingCount;
+            }
+
+            MenuDto menuDto = mapToMenuDto(menu);
+            menuDto.setRatingValue(ratingValue);
+            menuDto.setRatingCount(ratingCount);
+            menuDtos.add(menuDto);
+        }
+
+        return menuDtos;
     }
 
     @Override

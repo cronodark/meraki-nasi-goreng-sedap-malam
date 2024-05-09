@@ -13,6 +13,8 @@ public class MenuDto {
     private String photoUrl;
     private int harga;
     private String deskripsi;
+    private double ratingValue;
+    private int ratingCount;
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
 }
