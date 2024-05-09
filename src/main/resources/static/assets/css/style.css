@@ -198,6 +198,7 @@ p{
   position: absolute;
   z-index: 1;
   right: 10%;
+  top: 120%;
 }
 
 .segikontak{
@@ -235,7 +236,7 @@ p{
   border-radius: 50px 50px 0px 0px;
   background: #FFF;
   box-shadow: 20px -20px 40px 0px rgba(0, 0, 0, 0.08);
-
+}
 /*Menu*/
 
 .menu-content{
