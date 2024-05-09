@@ -31,29 +31,9 @@ public class GeneralController {
 
     @GetMapping("/")
     public String index(Model model) {
-        List<MenuDto> menus = menuService.findAllMenus();
-        List<Rating> ratings = ratingService.findAllRatings();
-        List<RatingDto> allRating = new ArrayList<>();
-
-        float tempRating = 0;
-        int totalRatingCount = 0;
-        for (int i = 0; i < menus.size(); i++) {
-            for (int j = 0; j < ratings.size(); j++){
-                if (menus.get(i).getId() == ratings.get(j).getIdMenu()){
-                    tempRating += ratings.get(j).getRating();
-                    totalRatingCount += 1;
-                }
-            }
-            tempRating = tempRating / totalRatingCount;
-            RatingDto createRating = new RatingDto(menus.get(i).getId(), tempRating, totalRatingCount);
-            allRating.add(createRating);
-            tempRating = 0;
-            totalRatingCount = 0;
-        }
-        model.addAttribute("ratings", allRating);
+        List<MenuDto> menus = menuService.findAllMenusWithRatings();
         model.addAttribute("menus", menus);
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
+        System.out.println("menus = " + menus);
         return "index";
     }
 

@@ -12,7 +12,6 @@ import java.util.List;
 @Service
 public class RatingServiceImpl implements RatingService {
     private RatingRepository ratingRepository;
-    List<RatingDto> finalRating;
 
     public RatingServiceImpl(RatingRepository ratingRepository) {
         this.ratingRepository = ratingRepository;
