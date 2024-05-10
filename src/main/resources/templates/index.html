@@ -7,6 +7,9 @@
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+   <!-- swiperjs -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
    <!-- Bootstrap CSS -->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
@@ -24,7 +27,7 @@
      style="background-color: #E53A30; height: 70px;">
      <div class="container">
        <a class="navbar-brand" href="#">
-         <img th:src="@{assets/img/SMJ.png}" alt="logo" width="30" height="24" class="d-inline-block align-text-top">
+         <img th:src="@{assets/img/SMJ.png}" alt="logo" width="40px" height="24" class="d-inline-block align-text-top">
        </a>
        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,15 +50,17 @@
            <li class="nav-item">
              <a class="nav-link" href="#kontak">Kontak</a>
            </li>
-           <li class="nav-item" sec:authorize="!isAuthenticated()">
+           <!-- <li class="nav-item" sec:authorize="!isAuthenticated()">
              <a class="nav-link" th:href="@{/login}">Login</a>
-           </li>
+           </li> -->
            <li class="nav-item" sec:authorize="isAuthenticated()">
              <a class="nav-link" th:href="@{/logout}">Logout</a>
            </li>
-           </li>
-         </ul>
-         </li>
+           <form class="container-fluid">
+             <button class="btn btn-outline-warning me-2 d-flex align-items-center" type="button">
+               <a class="nav-link" th:href="@{/login}">Login</a>
+             </button>
+           </form>
          </ul>
        </div>
      </div>
@@ -144,290 +149,272 @@
            <a href="https://youtu.be/dQw4w9WgXcQ?si=_kdNmnd9u4pj1LmM">See all</a>
          </p>
        </div>
+
        <!-- carousel -->
-       <div class="col-12 mt-2">
-         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
-           <div class="carousel-inner">
-             <div class="carousel-item active" data-bs-interval="10000">
-               <div class="row mb-5">
-                 <div class="col-3">
-                   <a href="https://youtu.be/dQw4w9WgXcQ?si=_kdNmnd9u4pj1LmM" style="text-decoration: none;"
-                     class="text-dark">
-                     <div class="d-flex justify-content-center">
-                       <div class="menusq d-flex justify-content-center">
-                         <div>
-                           <img src="assets/img/nasi goreng.png" alt="image" style="width: 210px; height: 210px;">
-                           <h2 style="color: #FFF8EF; font-size: 30px;">Nasi Goreng</h2>
-                           <p
-                             style="text-align: center; font-size: 13px; color: #FFF8EF; margin-left: 10px; margin-right: 10px;">
-                             Nasi goreng spesial dengan
-                             telur,
-                             ayam, dan bakso.
-                             Perpaduan sempurna antara tekstur dan rasa.</p>
-                           <div class="d-flex justify-content-center text-center" style="gap: 4px;">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="29" height="27" viewBox="0 0 29 27"
-                               fill="none">
-                               <path
-                                 d="M27.7942 12.3568L22.166 17.2113L23.8807 24.4713C23.9753 24.8654 23.951 25.2787 23.8107 25.6589C23.6704 
-                          26.0392 23.4206 26.3694 23.0927 26.6078C22.7648 26.8462 22.3735 26.9821 21.9684 26.9984C21.5633 27.0146 21.1624 26.9105 
-                          20.8164 26.6991L14.5003 22.8135L8.18033 26.6991C7.83441 26.9093 7.43402 27.0124 7.02958 26.9955C6.62514 26.9787 6.23473 26.8426 
-                          5.90751 26.6044C5.58029 26.3662 5.33089 26.0366 5.19072 25.657C5.05055 25.2774 5.02587 24.8648 5.1198 24.4713L6.8408 17.2113L1.21252 
-                          12.3568C0.906468 12.0924 0.685123 11.7437 0.576132 11.3543C0.467141 10.9649 0.475333 10.5521 0.599686 10.1673C0.72404 9.78252 0.959043 
-                          9.44289 1.27535 9.19083C1.59165 8.93876 1.97524 8.78543 2.3782 8.74998L9.75749 8.15488L12.6041 1.26878C12.7582 0.893491 13.0205 0.572479 
-                          13.3575 0.346555C13.6946 0.12063 14.0913 0 14.4971 0C14.903 0 15.2996 0.12063 15.6367 0.346555C15.9738 0.572479 16.236 0.893491 16.3901 
-                          1.26878L19.2355 8.15488L26.6148 8.74998C27.0186 8.78411 27.4033 8.93659 27.7207 9.18831C28.0382 9.44002 28.2743 9.77979 28.3994 10.165C28.5245 
-                          10.5503 28.5331 10.9638 28.4241 11.354C28.3152 11.7441 28.0934 12.0934 27.7867 12.3581L27.7942 12.3568Z"
-                                 fill="#F1C644" />
-                             </svg>
-                             <p style="font-size: 15px; font-weight: 500; margin-top: 3px;">4.5</p>
-                           </div>
-                           <p style="font-size: 21px; font-weight: 700;">Rp 17.000</p>
-                         </div>
-                       </div>
+       <div class="col-12 mt-1">
+         <div class="row d-flex kontener-gambar text-nowrap swiper mySwiper" style="flex-wrap: nowrap;">
+           <div class="col-lg-3 col-md-6 shadow-l ms-2 ">
+             <!-- isi card -->
+             <a href="https://youtu.be/dQw4w9WgXcQ?si=_kdNmnd9u4pj1LmM" style="text-decoration: none;"
+               class="text-dark">
+               <div class="d-flex justify-content-center mb-5">
+                 <div class="d-flex justify-content-center">
+                   <div class="menusq">
+                     <img src="assets/img/nasi goreng.png" alt="image" style="width: 210px; height: 210px;">
+                     <h2 style="color: #FFF8EF; font-size: 30px;">Nasi Goreng</h2>
+                     <p
+                       style="text-align: center; font-size: 13px; color: #FFF8EF; margin-left: 10px; margin-right: 10px;">
+                       Nasi goreng spesial dengan
+                       telur,
+                       ayam, dan bakso.
+                       Perpaduan sempurna antara tekstur dan rasa.</p>
+                     <div class="d-flex justify-content-center text-center" style="gap: 4px;">
+                       <svg xmlns="http://www.w3.org/2000/svg" width="29" height="27" viewBox="0 0 29 27" fill="none">
+                         <path
+                           d="M27.7942 12.3568L22.166 17.2113L23.8807 24.4713C23.9753 24.8654 23.951 25.2787 23.8107 25.6589C23.6704 
+                     26.0392 23.4206 26.3694 23.0927 26.6078C22.7648 26.8462 22.3735 26.9821 21.9684 26.9984C21.5633 27.0146 21.1624 26.9105 
+                     20.8164 26.6991L14.5003 22.8135L8.18033 26.6991C7.83441 26.9093 7.43402 27.0124 7.02958 26.9955C6.62514 26.9787 6.23473 26.8426 
+                     5.90751 26.6044C5.58029 26.3662 5.33089 26.0366 5.19072 25.657C5.05055 25.2774 5.02587 24.8648 5.1198 24.4713L6.8408 17.2113L1.21252 
+                     12.3568C0.906468 12.0924 0.685123 11.7437 0.576132 11.3543C0.467141 10.9649 0.475333 10.5521 0.599686 10.1673C0.72404 9.78252 0.959043 
+                     9.44289 1.27535 9.19083C1.59165 8.93876 1.97524 8.78543 2.3782 8.74998L9.75749 8.15488L12.6041 1.26878C12.7582 0.893491 13.0205 0.572479 
+                     13.3575 0.346555C13.6946 0.12063 14.0913 0 14.4971 0C14.903 0 15.2996 0.12063 15.6367 0.346555C15.9738 0.572479 16.236 0.893491 16.3901 
+                     1.26878L19.2355 8.15488L26.6148 8.74998C27.0186 8.78411 27.4033 8.93659 27.7207 9.18831C28.0382 9.44002 28.2743 9.77979 28.3994 10.165C28.5245 
+                     10.5503 28.5331 10.9638 28.4241 11.354C28.3152 11.7441 28.0934 12.0934 27.7867 12.3581L27.7942 12.3568Z"
+                           fill="#F1C644" />
+                       </svg>
+                       <p style="font-size: 15px; font-weight: 500; margin-top: 3px;">4.5</p>
                      </div>
-                   </a>
-                 </div>
-                 <div class="col-3">
-                   <a href="https://youtu.be/dQw4w9WgXcQ?si=_kdNmnd9u4pj1LmM" style="text-decoration: none;"
-                     class="text-dark">
-                     <div class="d-flex justify-content-center">
-                       <div class="menusq2 d-flex justify-content-center">
-                         <div>
-                           <img src="assets/img/mie goreng.png" alt="image" style="width: 210px; height: 210px;">
-                           <h2 style="color: #FFF8EF; font-size: 30px;">Mie Goreng</h2>
-                           <p
-                             style="text-align: center; font-size: 13px; color: #FFF8EF; margin-left: 10px; margin-right: 10px;">
-                             Mie goreng istimewa dengan
-                             telur,
-                             ayam, bakso, sawi, dan kol.
-                             Paduan sempurna dan kaya akan gizi dalam tiap suapannya. </p>
-                           <div class="d-flex justify-content-center text-center" style="gap: 4px;">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="29" height="27" viewBox="0 0 29 27"
-                               fill="none">
-                               <path
-                                 d="M27.7942 12.3568L22.166 17.2113L23.8807 24.4713C23.9753 24.8654 23.951 25.2787 23.8107 25.6589C23.6704 
-                          26.0392 23.4206 26.3694 23.0927 26.6078C22.7648 26.8462 22.3735 26.9821 21.9684 26.9984C21.5633 27.0146 21.1624 26.9105 
-                          20.8164 26.6991L14.5003 22.8135L8.18033 26.6991C7.83441 26.9093 7.43402 27.0124 7.02958 26.9955C6.62514 26.9787 6.23473 26.8426 
-                          5.90751 26.6044C5.58029 26.3662 5.33089 26.0366 5.19072 25.657C5.05055 25.2774 5.02587 24.8648 5.1198 24.4713L6.8408 17.2113L1.21252 
-                          12.3568C0.906468 12.0924 0.685123 11.7437 0.576132 11.3543C0.467141 10.9649 0.475333 10.5521 0.599686 10.1673C0.72404 9.78252 0.959043 
-                          9.44289 1.27535 9.19083C1.59165 8.93876 1.97524 8.78543 2.3782 8.74998L9.75749 8.15488L12.6041 1.26878C12.7582 0.893491 13.0205 0.572479 
-                          13.3575 0.346555C13.6946 0.12063 14.0913 0 14.4971 0C14.903 0 15.2996 0.12063 15.6367 0.346555C15.9738 0.572479 16.236 0.893491 16.3901 
-                          1.26878L19.2355 8.15488L26.6148 8.74998C27.0186 8.78411 27.4033 8.93659 27.7207 9.18831C28.0382 9.44002 28.2743 9.77979 28.3994 10.165C28.5245 
-                          10.5503 28.5331 10.9638 28.4241 11.354C28.3152 11.7441 28.0934 12.0934 27.7867 12.3581L27.7942 12.3568Z"
-                                 fill="#F1C644" />
-                             </svg>
-                             <p style="font-size: 15px; font-weight: 500; margin-top: 3px;">4.5</p>
-                           </div>
-                           <p style="font-size: 21px; font-weight: 700;">Rp 17.000</p>
-                         </div>
-                       </div>
-                     </div>
-                   </a>
-                 </div>
-                 <div class="col-3">
-                   <a href="https://youtu.be/dQw4w9WgXcQ?si=_kdNmnd9u4pj1LmM" style="text-decoration: none;"
-                     class="text-dark">
-                     <div class="menusq d-flex justify-content-center">
-                       <div>
-                         <img src="assets/img/mie rebus.png" alt="image" style="width: 210px; height: 210px;">
-                         <h2 style="color: #FFF8EF; font-size: 30px;">Mie Rebus</h2>
-                         <p
-                           style="text-align: center; font-size: 13px; color: #FFF8EF; margin-left: 10px; margin-right: 10px;">
-                           Mie rebus spesial dengan telur,
-                           ayam, bakso, sawi, dan kol.
-                           Nikmati kelezatan dan kehangatan dalam setiap sendokannya.</p>
-                         <div class="d-flex justify-content-center text-center" style="gap: 4px;">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="29" height="27" viewBox="0 0 29 27"
-                             fill="none">
-                             <path
-                               d="M27.7942 12.3568L22.166 17.2113L23.8807 24.4713C23.9753 24.8654 23.951 25.2787 23.8107 25.6589C23.6704 
-                          26.0392 23.4206 26.3694 23.0927 26.6078C22.7648 26.8462 22.3735 26.9821 21.9684 26.9984C21.5633 27.0146 21.1624 26.9105 
-                          20.8164 26.6991L14.5003 22.8135L8.18033 26.6991C7.83441 26.9093 7.43402 27.0124 7.02958 26.9955C6.62514 26.9787 6.23473 26.8426 
-                          5.90751 26.6044C5.58029 26.3662 5.33089 26.0366 5.19072 25.657C5.05055 25.2774 5.02587 24.8648 5.1198 24.4713L6.8408 17.2113L1.21252 
-                          12.3568C0.906468 12.0924 0.685123 11.7437 0.576132 11.3543C0.467141 10.9649 0.475333 10.5521 0.599686 10.1673C0.72404 9.78252 0.959043 
-                          9.44289 1.27535 9.19083C1.59165 8.93876 1.97524 8.78543 2.3782 8.74998L9.75749 8.15488L12.6041 1.26878C12.7582 0.893491 13.0205 0.572479 
-                          13.3575 0.346555C13.6946 0.12063 14.0913 0 14.4971 0C14.903 0 15.2996 0.12063 15.6367 0.346555C15.9738 0.572479 16.236 0.893491 16.3901 
-                          1.26878L19.2355 8.15488L26.6148 8.74998C27.0186 8.78411 27.4033 8.93659 27.7207 9.18831C28.0382 9.44002 28.2743 9.77979 28.3994 10.165C28.5245 
-                          10.5503 28.5331 10.9638 28.4241 11.354C28.3152 11.7441 28.0934 12.0934 27.7867 12.3581L27.7942 12.3568Z"
-                               fill="#F1C644" />
-                           </svg>
-                           <p style="font-size: 15px; font-weight: 500; margin-top: 3px;">4.5</p>
-                         </div>
-                         <p style="font-size: 21px; font-weight: 700;">Rp 17.000</p>
-                       </div>
-                     </div>
-                   </a>
-                 </div>
-                 <div class="col-3">
-                   <a href="https://youtu.be/dQw4w9WgXcQ?si=_kdNmnd9u4pj1LmM" style="text-decoration: none;"
-                     class="text-dark">
-                     <div class="d-flex justify-content-center">
-                       <div class="menusq2 d-flex justify-content-center">
-                         <div>
-                           <img src="assets/img/kwetiaw goreng.png" alt="image" style="width: 240px; height: 210px;">
-                           <h2 style="color: #FFF8EF; font-size: 30px;">Kwetiaw Goreng</h2>
-                           <p
-                             style="text-align: center; font-size: 13px; color: #FFF8EF; margin-left: 10px; margin-right: 10px;">
-                             Kwetiaw goreng istimewa dengan
-                             telur, ayam, bakso, dan sawi kol.
-                             Sajian lezat yang menggoda selera.</p>
-                           <div class="d-flex justify-content-center text-center" style="gap: 4px;">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="29" height="27" viewBox="0 0 29 27"
-                               fill="none">
-                               <path
-                                 d="M27.7942 12.3568L22.166 17.2113L23.8807 24.4713C23.9753 24.8654 23.951 25.2787 23.8107 25.6589C23.6704 
-                          26.0392 23.4206 26.3694 23.0927 26.6078C22.7648 26.8462 22.3735 26.9821 21.9684 26.9984C21.5633 27.0146 21.1624 26.9105 
-                          20.8164 26.6991L14.5003 22.8135L8.18033 26.6991C7.83441 26.9093 7.43402 27.0124 7.02958 26.9955C6.62514 26.9787 6.23473 26.8426 
-                          5.90751 26.6044C5.58029 26.3662 5.33089 26.0366 5.19072 25.657C5.05055 25.2774 5.02587 24.8648 5.1198 24.4713L6.8408 17.2113L1.21252 
-                          12.3568C0.906468 12.0924 0.685123 11.7437 0.576132 11.3543C0.467141 10.9649 0.475333 10.5521 0.599686 10.1673C0.72404 9.78252 0.959043 
-                          9.44289 1.27535 9.19083C1.59165 8.93876 1.97524 8.78543 2.3782 8.74998L9.75749 8.15488L12.6041 1.26878C12.7582 0.893491 13.0205 0.572479 
-                          13.3575 0.346555C13.6946 0.12063 14.0913 0 14.4971 0C14.903 0 15.2996 0.12063 15.6367 0.346555C15.9738 0.572479 16.236 0.893491 16.3901 
-                          1.26878L19.2355 8.15488L26.6148 8.74998C27.0186 8.78411 27.4033 8.93659 27.7207 9.18831C28.0382 9.44002 28.2743 9.77979 28.3994 10.165C28.5245 
-                          10.5503 28.5331 10.9638 28.4241 11.354C28.3152 11.7441 28.0934 12.0934 27.7867 12.3581L27.7942 12.3568Z"
-                                 fill="#F1C644" />
-                             </svg>
-                             <p style="font-size: 15px; font-weight: 500; margin-top: 3px;">4.5</p>
-                           </div>
-                           <p style="font-size: 21px; font-weight: 700;">Rp 17.000</p>
-                         </div>
-                       </div>
-                     </div>
-                   </a>
-                 </div>
-               </div>
-             </div>
-             <div class="carousel-item">
-               <div class="row mb-5">
-                 <div class="d-flex justify-content-center gap-3">
-                   <div class="col-3">
-                     <a href="https://youtu.be/dQw4w9WgXcQ?si=_kdNmnd9u4pj1LmM" style="text-decoration: none;"
-                       class="text-dark">
-                       <div class="d-flex justify-content-center">
-                         <div class="menusq d-flex justify-content-center">
-                           <div>
-                             <img src="assets/img/kwetiaw rebus.png" alt="image" style="width: 210px; height: 210px;">
-                             <h2 style="color: #FFF8EF; font-size: 30px;">Kwetiaw Rebus</h2>
-                             <p
-                               style="text-align: center; font-size: 13px; color: #FFF8EF; margin-left: 10px; margin-right: 10px;">
-                               Kwetiaw rebus dengan telur,
-                               ayam, bakso, sawi, dan kol.
-                               Sajian lezat dan bergizi untuk memanjakan lidah Anda. </p>
-                             <div class="d-flex justify-content-center text-center" style="gap: 4px;">
-                               <svg xmlns="http://www.w3.org/2000/svg" width="29" height="27" viewBox="0 0 29 27"
-                                 fill="none">
-                                 <path
-                                   d="M27.7942 12.3568L22.166 17.2113L23.8807 24.4713C23.9753 24.8654 23.951 25.2787 23.8107 25.6589C23.6704 
-                          26.0392 23.4206 26.3694 23.0927 26.6078C22.7648 26.8462 22.3735 26.9821 21.9684 26.9984C21.5633 27.0146 21.1624 26.9105 
-                          20.8164 26.6991L14.5003 22.8135L8.18033 26.6991C7.83441 26.9093 7.43402 27.0124 7.02958 26.9955C6.62514 26.9787 6.23473 26.8426 
-                          5.90751 26.6044C5.58029 26.3662 5.33089 26.0366 5.19072 25.657C5.05055 25.2774 5.02587 24.8648 5.1198 24.4713L6.8408 17.2113L1.21252 
-                          12.3568C0.906468 12.0924 0.685123 11.7437 0.576132 11.3543C0.467141 10.9649 0.475333 10.5521 0.599686 10.1673C0.72404 9.78252 0.959043 
-                          9.44289 1.27535 9.19083C1.59165 8.93876 1.97524 8.78543 2.3782 8.74998L9.75749 8.15488L12.6041 1.26878C12.7582 0.893491 13.0205 0.572479 
-                          13.3575 0.346555C13.6946 0.12063 14.0913 0 14.4971 0C14.903 0 15.2996 0.12063 15.6367 0.346555C15.9738 0.572479 16.236 0.893491 16.3901 
-                          1.26878L19.2355 8.15488L26.6148 8.74998C27.0186 8.78411 27.4033 8.93659 27.7207 9.18831C28.0382 9.44002 28.2743 9.77979 28.3994 10.165C28.5245 
-                          10.5503 28.5331 10.9638 28.4241 11.354C28.3152 11.7441 28.0934 12.0934 27.7867 12.3581L27.7942 12.3568Z"
-                                   fill="#F1C644" />
-                               </svg>
-                               <p style="font-size: 15px; font-weight: 500; margin-top: 3px;">4.5</p>
-                             </div>
-                             <p style="font-size: 21px; font-weight: 700;">Rp 17.000</p>
-                           </div>
-                         </div>
-                       </div>
-                     </a>
-                   </div>
-                   <div class="col-3">
-                     <a href="https://youtu.be/dQw4w9WgXcQ?si=_kdNmnd9u4pj1LmM" style="text-decoration: none;"
-                       class="text-dark">
-                       <div class="d-flex justify-content-center">
-                         <div class="menusq2 d-flex justify-content-center">
-                           <div>
-                             <img src="assets/img/bihun goreng.png" alt="image" style="width: 210px; height: 210px;">
-                             <h2 style="color: #FFF8EF; font-size: 30px;">Bihun Goreng</h2>
-                             <p
-                               style="text-align: center; font-size: 13px; color: #FFF8EF; margin-left: 10px; margin-right: 10px;">
-                               Bihun goreng dengan telur,
-                               ayam, baso, sawi, dan kol.
-                               Paduan lezat rasa dan tekstur yang memukau.</p>
-                             <div class="d-flex justify-content-center text-center" style="gap: 4px;">
-                               <svg xmlns="http://www.w3.org/2000/svg" width="29" height="27" viewBox="0 0 29 27"
-                                 fill="none">
-                                 <path
-                                   d="M27.7942 12.3568L22.166 17.2113L23.8807 24.4713C23.9753 24.8654 23.951 25.2787 23.8107 25.6589C23.6704 
-                          26.0392 23.4206 26.3694 23.0927 26.6078C22.7648 26.8462 22.3735 26.9821 21.9684 26.9984C21.5633 27.0146 21.1624 26.9105 
-                          20.8164 26.6991L14.5003 22.8135L8.18033 26.6991C7.83441 26.9093 7.43402 27.0124 7.02958 26.9955C6.62514 26.9787 6.23473 26.8426 
-                          5.90751 26.6044C5.58029 26.3662 5.33089 26.0366 5.19072 25.657C5.05055 25.2774 5.02587 24.8648 5.1198 24.4713L6.8408 17.2113L1.21252 
-                          12.3568C0.906468 12.0924 0.685123 11.7437 0.576132 11.3543C0.467141 10.9649 0.475333 10.5521 0.599686 10.1673C0.72404 9.78252 0.959043 
-                          9.44289 1.27535 9.19083C1.59165 8.93876 1.97524 8.78543 2.3782 8.74998L9.75749 8.15488L12.6041 1.26878C12.7582 0.893491 13.0205 0.572479 
-                          13.3575 0.346555C13.6946 0.12063 14.0913 0 14.4971 0C14.903 0 15.2996 0.12063 15.6367 0.346555C15.9738 0.572479 16.236 0.893491 16.3901 
-                          1.26878L19.2355 8.15488L26.6148 8.74998C27.0186 8.78411 27.4033 8.93659 27.7207 9.18831C28.0382 9.44002 28.2743 9.77979 28.3994 10.165C28.5245 
-                          10.5503 28.5331 10.9638 28.4241 11.354C28.3152 11.7441 28.0934 12.0934 27.7867 12.3581L27.7942 12.3568Z"
-                                   fill="#F1C644" />
-                               </svg>
-                               <p style="font-size: 15px; font-weight: 500; margin-top: 3px;">4.5</p>
-                             </div>
-                             <p style="font-size: 21px; font-weight: 700;">Rp 17.000</p>
-                           </div>
-                         </div>
-                       </div>
-                     </a>
-                   </div>
-                   <div class="col-3">
-                     <a href="https://youtu.be/dQw4w9WgXcQ?si=_kdNmnd9u4pj1LmM" style="text-decoration: none;"
-                       class="text-dark">
-                       <div class="d-flex justify-content-center">
-                         <div class="menusq d-flex justify-content-center">
-                           <div>
-                             <img src="assets/img/bihun rebus.png" alt="image" style="width: 210px; height: 210px;">
-                             <h2 style="color: #FFF8EF; font-size: 30px;">Bihun Rebus</h2>
-                             <p
-                               style="text-align: center; font-size: 13px; color: #FFF8EF; margin-left: 10px; margin-right: 10px;">
-                               Bihun rebus dengan telur,
-                               ayam, baso, sawi, dan kol. Sajian lezat dan bergizi untuk dinikmati kapan saja.</p>
-                             <div class="d-flex justify-content-center text-center" style="gap: 4px;">
-                               <svg xmlns="http://www.w3.org/2000/svg" width="29" height="27" viewBox="0 0 29 27"
-                                 fill="none">
-                                 <path
-                                   d="M27.7942 12.3568L22.166 17.2113L23.8807 24.4713C23.9753 24.8654 23.951 25.2787 23.8107 25.6589C23.6704 
-                          26.0392 23.4206 26.3694 23.0927 26.6078C22.7648 26.8462 22.3735 26.9821 21.9684 26.9984C21.5633 27.0146 21.1624 26.9105 
-                          20.8164 26.6991L14.5003 22.8135L8.18033 26.6991C7.83441 26.9093 7.43402 27.0124 7.02958 26.9955C6.62514 26.9787 6.23473 26.8426 
-                          5.90751 26.6044C5.58029 26.3662 5.33089 26.0366 5.19072 25.657C5.05055 25.2774 5.02587 24.8648 5.1198 24.4713L6.8408 17.2113L1.21252 
-                          12.3568C0.906468 12.0924 0.685123 11.7437 0.576132 11.3543C0.467141 10.9649 0.475333 10.5521 0.599686 10.1673C0.72404 9.78252 0.959043 
-                          9.44289 1.27535 9.19083C1.59165 8.93876 1.97524 8.78543 2.3782 8.74998L9.75749 8.15488L12.6041 1.26878C12.7582 0.893491 13.0205 0.572479 
-                          13.3575 0.346555C13.6946 0.12063 14.0913 0 14.4971 0C14.903 0 15.2996 0.12063 15.6367 0.346555C15.9738 0.572479 16.236 0.893491 16.3901 
-                          1.26878L19.2355 8.15488L26.6148 8.74998C27.0186 8.78411 27.4033 8.93659 27.7207 9.18831C28.0382 9.44002 28.2743 9.77979 28.3994 10.165C28.5245 
-                          10.5503 28.5331 10.9638 28.4241 11.354C28.3152 11.7441 28.0934 12.0934 27.7867 12.3581L27.7942 12.3568Z"
-                                   fill="#F1C644" />
-                               </svg>
-                               <p style="font-size: 15px; font-weight: 500; margin-top: 3px;">4.5</p>
-                             </div>
-                             <p style="font-size: 21px; font-weight: 700;">Rp 17.000</p>
-                           </div>
-                         </div>
-                       </div>
-                     </a>
+                     <p style="font-size: 21px; font-weight: 700;">Rp 17.000</p>
                    </div>
                  </div>
                </div>
-             </div>
+             </a>
+             <!-- isi card -->
            </div>
-           <!-- button -->
-           <div class="d-flex justify-content-start">
-             <button class="carousel-control-prev d-flex justify-content-start" type="button"
-               data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-               <span class="visually-hidden">Previous</span>
-             </button>
+           <div class="col-lg-3 col-md-6 shadow-l ms-2  ">
+             <!-- isi konten -->
+             <a href="https://youtu.be/dQw4w9WgXcQ?si=_kdNmnd9u4pj1LmM" style="text-decoration: none;"
+               class="text-dark">
+               <div class="d-flex justify-content-center">
+                 <div class="d-flex justify-content-center">
+                   <div class="menusq2">
+                     <img src="assets/img/mie goreng.png" alt="image" style="width: 210px; height: 210px;">
+                     <h2 style="color: #FFF8EF; font-size: 30px;">Mie Goreng</h2>
+                     <p
+                       style="text-align: center; font-size: 13px; color: #FFF8EF; margin-left: 10px; margin-right: 10px;">
+                       Mie goreng istimewa dengan
+                       telur,
+                       ayam, bakso, sawi, dan kol.
+                       Paduan sempurna dan kaya akan gizi dalam tiap suapannya. </p>
+                     <div class="d-flex justify-content-center text-center" style="gap: 4px;">
+                       <svg xmlns="http://www.w3.org/2000/svg" width="29" height="27" viewBox="0 0 29 27" fill="none">
+                         <path
+                           d="M27.7942 12.3568L22.166 17.2113L23.8807 24.4713C23.9753 24.8654 23.951 25.2787 23.8107 25.6589C23.6704 
+                     26.0392 23.4206 26.3694 23.0927 26.6078C22.7648 26.8462 22.3735 26.9821 21.9684 26.9984C21.5633 27.0146 21.1624 26.9105 
+                     20.8164 26.6991L14.5003 22.8135L8.18033 26.6991C7.83441 26.9093 7.43402 27.0124 7.02958 26.9955C6.62514 26.9787 6.23473 26.8426 
+                     5.90751 26.6044C5.58029 26.3662 5.33089 26.0366 5.19072 25.657C5.05055 25.2774 5.02587 24.8648 5.1198 24.4713L6.8408 17.2113L1.21252 
+                     12.3568C0.906468 12.0924 0.685123 11.7437 0.576132 11.3543C0.467141 10.9649 0.475333 10.5521 0.599686 10.1673C0.72404 9.78252 0.959043 
+                     9.44289 1.27535 9.19083C1.59165 8.93876 1.97524 8.78543 2.3782 8.74998L9.75749 8.15488L12.6041 1.26878C12.7582 0.893491 13.0205 0.572479 
+                     13.3575 0.346555C13.6946 0.12063 14.0913 0 14.4971 0C14.903 0 15.2996 0.12063 15.6367 0.346555C15.9738 0.572479 16.236 0.893491 16.3901 
+                     1.26878L19.2355 8.15488L26.6148 8.74998C27.0186 8.78411 27.4033 8.93659 27.7207 9.18831C28.0382 9.44002 28.2743 9.77979 28.3994 10.165C28.5245 
+                     10.5503 28.5331 10.9638 28.4241 11.354C28.3152 11.7441 28.0934 12.0934 27.7867 12.3581L27.7942 12.3568Z"
+                           fill="#F1C644" />
+                       </svg>
+                       <p style="font-size: 15px; font-weight: 500; margin-top: 3px;">4.5</p>
+                     </div>
+                     <p style="font-size: 21px; font-weight: 700;">Rp 17.000</p>
+                   </div>
+                 </div>
+               </div>
+             </a>
+             <!-- isi card -->
            </div>
-           <div>
-             <button class="carousel-control-next d-flex justify-content-end" type="button"
-               data-bs-target="#carouselExampleControls" data-bs-slide="next">
-               <span class="carousel-control-next-icon" aria-hidden="true"></span>
-               <span class="visually-hidden">Next</span>
-             </button>
+           <div class="col-lg-3 col-md-6 shadow-l ms-2  ">
+             <!-- isi konten -->
+             <a href="https://youtu.be/dQw4w9WgXcQ?si=_kdNmnd9u4pj1LmM" style="text-decoration: none;"
+               class="text-dark">
+               <div class="d-flex justify-content-center">
+                 <div class="menusq">
+                   <img src="assets/img/mie rebus.png" alt="image" style="width: 210px; height: 210px;">
+                   <h2 style="color: #FFF8EF; font-size: 30px;">Mie Rebus</h2>
+                   <p
+                     style="text-align: center; font-size: 13px; color: #FFF8EF; margin-left: 10px; margin-right: 10px;">
+                     Mie rebus spesial dengan telur,
+                     ayam, bakso, sawi, dan kol.
+                     Nikmati kelezatan dan kehangatan dalam setiap sendokannya.</p>
+                   <div class="d-flex justify-content-center text-center" style="gap: 4px;">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="29" height="27" viewBox="0 0 29 27" fill="none">
+                       <path
+                         d="M27.7942 12.3568L22.166 17.2113L23.8807 24.4713C23.9753 24.8654 23.951 25.2787 23.8107 25.6589C23.6704 
+                     26.0392 23.4206 26.3694 23.0927 26.6078C22.7648 26.8462 22.3735 26.9821 21.9684 26.9984C21.5633 27.0146 21.1624 26.9105 
+                     20.8164 26.6991L14.5003 22.8135L8.18033 26.6991C7.83441 26.9093 7.43402 27.0124 7.02958 26.9955C6.62514 26.9787 6.23473 26.8426 
+                     5.90751 26.6044C5.58029 26.3662 5.33089 26.0366 5.19072 25.657C5.05055 25.2774 5.02587 24.8648 5.1198 24.4713L6.8408 17.2113L1.21252 
+                     12.3568C0.906468 12.0924 0.685123 11.7437 0.576132 11.3543C0.467141 10.9649 0.475333 10.5521 0.599686 10.1673C0.72404 9.78252 0.959043 
+                     9.44289 1.27535 9.19083C1.59165 8.93876 1.97524 8.78543 2.3782 8.74998L9.75749 8.15488L12.6041 1.26878C12.7582 0.893491 13.0205 0.572479 
+                     13.3575 0.346555C13.6946 0.12063 14.0913 0 14.4971 0C14.903 0 15.2996 0.12063 15.6367 0.346555C15.9738 0.572479 16.236 0.893491 16.3901 
+                     1.26878L19.2355 8.15488L26.6148 8.74998C27.0186 8.78411 27.4033 8.93659 27.7207 9.18831C28.0382 9.44002 28.2743 9.77979 28.3994 10.165C28.5245 
+                     10.5503 28.5331 10.9638 28.4241 11.354C28.3152 11.7441 28.0934 12.0934 27.7867 12.3581L27.7942 12.3568Z"
+                         fill="#F1C644" />
+                     </svg>
+                     <p style="font-size: 15px; font-weight: 500; margin-top: 3px;">4.5</p>
+                   </div>
+                   <p style="font-size: 21px; font-weight: 700;">Rp 17.000</p>
+                 </div>
+               </div>
+             </a>
+             <!-- isi card -->
            </div>
-           <!-- button -->
+           <div class="col-lg-3 col-md-6 shadow-l ms-2  ">
+             <!-- isi konten -->
+             <a href="https://youtu.be/dQw4w9WgXcQ?si=_kdNmnd9u4pj1LmM" style="text-decoration: none;"
+               class="text-dark">
+               <div class="d-flex justify-content-center">
+                 <div class="d-flex justify-content-center">
+                   <div class="menusq2">
+                     <img src="assets/img/kwetiaw goreng.png" alt="image" style="width: 240px; height: 210px;">
+                     <h2 style="color: #FFF8EF; font-size: 30px;">Kwetiaw Goreng</h2>
+                     <p
+                       style="text-align: center; font-size: 13px; color: #FFF8EF; margin-left: 10px; margin-right: 10px;">
+                       Kwetiaw goreng istimewa dengan
+                       telur, ayam, bakso, dan sawi kol.
+                       Sajian lezat yang menggoda selera.</p>
+                     <div class="d-flex justify-content-center text-center" style="gap: 4px;">
+                       <svg xmlns="http://www.w3.org/2000/svg" width="29" height="27" viewBox="0 0 29 27" fill="none">
+                         <path
+                           d="M27.7942 12.3568L22.166 17.2113L23.8807 24.4713C23.9753 24.8654 23.951 25.2787 23.8107 25.6589C23.6704 
+                     26.0392 23.4206 26.3694 23.0927 26.6078C22.7648 26.8462 22.3735 26.9821 21.9684 26.9984C21.5633 27.0146 21.1624 26.9105 
+                     20.8164 26.6991L14.5003 22.8135L8.18033 26.6991C7.83441 26.9093 7.43402 27.0124 7.02958 26.9955C6.62514 26.9787 6.23473 26.8426 
+                     5.90751 26.6044C5.58029 26.3662 5.33089 26.0366 5.19072 25.657C5.05055 25.2774 5.02587 24.8648 5.1198 24.4713L6.8408 17.2113L1.21252 
+                     12.3568C0.906468 12.0924 0.685123 11.7437 0.576132 11.3543C0.467141 10.9649 0.475333 10.5521 0.599686 10.1673C0.72404 9.78252 0.959043 
+                     9.44289 1.27535 9.19083C1.59165 8.93876 1.97524 8.78543 2.3782 8.74998L9.75749 8.15488L12.6041 1.26878C12.7582 0.893491 13.0205 0.572479 
+                     13.3575 0.346555C13.6946 0.12063 14.0913 0 14.4971 0C14.903 0 15.2996 0.12063 15.6367 0.346555C15.9738 0.572479 16.236 0.893491 16.3901 
+                     1.26878L19.2355 8.15488L26.6148 8.74998C27.0186 8.78411 27.4033 8.93659 27.7207 9.18831C28.0382 9.44002 28.2743 9.77979 28.3994 10.165C28.5245 
+                     10.5503 28.5331 10.9638 28.4241 11.354C28.3152 11.7441 28.0934 12.0934 27.7867 12.3581L27.7942 12.3568Z"
+                           fill="#F1C644" />
+                       </svg>
+                       <p style="font-size: 15px; font-weight: 500; margin-top: 3px;">4.5</p>
+                     </div>
+                     <p style="font-size: 21px; font-weight: 700;">Rp 17.000</p>
+                   </div>
+                 </div>
+               </div>
+             </a>
+             <!-- isi card -->
+           </div>
+           <div class="col-lg-3 col-md-6 shadow-l ms-2  ">
+             <!-- isi konten -->
+             <a href="https://youtu.be/dQw4w9WgXcQ?si=_kdNmnd9u4pj1LmM" style="text-decoration: none;"
+               class="text-dark">
+               <div class="d-flex justify-content-center">
+                 <div class="d-flex justify-content-center">
+                   <div class="menusq">
+                     <img src="assets/img/kwetiaw rebus.png" alt="image" style="width: 210px; height: 210px;">
+                     <h2 style="color: #FFF8EF; font-size: 30px;">Kwetiaw Rebus</h2>
+                     <p
+                       style="text-align: center; font-size: 13px; color: #FFF8EF; margin-left: 10px; margin-right: 10px;">
+                       Kwetiaw rebus dengan telur,
+                       ayam, bakso, sawi, dan kol.
+                       Sajian lezat dan bergizi untuk memanjakan lidah Anda. </p>
+                     <div class="d-flex justify-content-center text-center" style="gap: 4px;">
+                       <svg xmlns="http://www.w3.org/2000/svg" width="29" height="27" viewBox="0 0 29 27" fill="none">
+                         <path
+                           d="M27.7942 12.3568L22.166 17.2113L23.8807 24.4713C23.9753 24.8654 23.951 25.2787 23.8107 25.6589C23.6704 
+                     26.0392 23.4206 26.3694 23.0927 26.6078C22.7648 26.8462 22.3735 26.9821 21.9684 26.9984C21.5633 27.0146 21.1624 26.9105 
+                     20.8164 26.6991L14.5003 22.8135L8.18033 26.6991C7.83441 26.9093 7.43402 27.0124 7.02958 26.9955C6.62514 26.9787 6.23473 26.8426 
+                     5.90751 26.6044C5.58029 26.3662 5.33089 26.0366 5.19072 25.657C5.05055 25.2774 5.02587 24.8648 5.1198 24.4713L6.8408 17.2113L1.21252 
+                     12.3568C0.906468 12.0924 0.685123 11.7437 0.576132 11.3543C0.467141 10.9649 0.475333 10.5521 0.599686 10.1673C0.72404 9.78252 0.959043 
+                     9.44289 1.27535 9.19083C1.59165 8.93876 1.97524 8.78543 2.3782 8.74998L9.75749 8.15488L12.6041 1.26878C12.7582 0.893491 13.0205 0.572479 
+                     13.3575 0.346555C13.6946 0.12063 14.0913 0 14.4971 0C14.903 0 15.2996 0.12063 15.6367 0.346555C15.9738 0.572479 16.236 0.893491 16.3901 
+                     1.26878L19.2355 8.15488L26.6148 8.74998C27.0186 8.78411 27.4033 8.93659 27.7207 9.18831C28.0382 9.44002 28.2743 9.77979 28.3994 10.165C28.5245 
+                     10.5503 28.5331 10.9638 28.4241 11.354C28.3152 11.7441 28.0934 12.0934 27.7867 12.3581L27.7942 12.3568Z"
+                           fill="#F1C644" />
+                       </svg>
+                       <p style="font-size: 15px; font-weight: 500; margin-top: 3px;">4.5</p>
+                     </div>
+                     <p style="font-size: 21px; font-weight: 700;">Rp 17.000</p>
+                   </div>
+                 </div>
+               </div>
+             </a>
+             <!-- isi card -->
+           </div>
+           <div class="col-lg-3 col-md-6 shadow-l ms-2  ">
+             <!-- isi konten -->
+             <a href="https://youtu.be/dQw4w9WgXcQ?si=_kdNmnd9u4pj1LmM" style="text-decoration: none;"
+               class="text-dark">
+               <div class="d-flex justify-content-center">
+                 <div class="d-flex justify-content-center">
+                   <div class="menusq2">
+                     <img src="assets/img/bihun goreng.png" alt="image" style="width: 210px; height: 210px;">
+                     <h2 style="color: #FFF8EF; font-size: 30px;">Bihun Goreng</h2>
+                     <p
+                       style="text-align: center; font-size: 13px; color: #FFF8EF; margin-left: 10px; margin-right: 10px;">
+                       Bihun goreng dengan telur,
+                       ayam, baso, sawi, dan kol.
+                       Paduan lezat rasa dan tekstur yang memukau.</p>
+                     <div class="d-flex justify-content-center text-center" style="gap: 4px;">
+                       <svg xmlns="http://www.w3.org/2000/svg" width="29" height="27" viewBox="0 0 29 27" fill="none">
+                         <path
+                           d="M27.7942 12.3568L22.166 17.2113L23.8807 24.4713C23.9753 24.8654 23.951 25.2787 23.8107 25.6589C23.6704 
+                     26.0392 23.4206 26.3694 23.0927 26.6078C22.7648 26.8462 22.3735 26.9821 21.9684 26.9984C21.5633 27.0146 21.1624 26.9105 
+                     20.8164 26.6991L14.5003 22.8135L8.18033 26.6991C7.83441 26.9093 7.43402 27.0124 7.02958 26.9955C6.62514 26.9787 6.23473 26.8426 
+                     5.90751 26.6044C5.58029 26.3662 5.33089 26.0366 5.19072 25.657C5.05055 25.2774 5.02587 24.8648 5.1198 24.4713L6.8408 17.2113L1.21252 
+                     12.3568C0.906468 12.0924 0.685123 11.7437 0.576132 11.3543C0.467141 10.9649 0.475333 10.5521 0.599686 10.1673C0.72404 9.78252 0.959043 
+                     9.44289 1.27535 9.19083C1.59165 8.93876 1.97524 8.78543 2.3782 8.74998L9.75749 8.15488L12.6041 1.26878C12.7582 0.893491 13.0205 0.572479 
+                     13.3575 0.346555C13.6946 0.12063 14.0913 0 14.4971 0C14.903 0 15.2996 0.12063 15.6367 0.346555C15.9738 0.572479 16.236 0.893491 16.3901 
+                     1.26878L19.2355 8.15488L26.6148 8.74998C27.0186 8.78411 27.4033 8.93659 27.7207 9.18831C28.0382 9.44002 28.2743 9.77979 28.3994 10.165C28.5245 
+                     10.5503 28.5331 10.9638 28.4241 11.354C28.3152 11.7441 28.0934 12.0934 27.7867 12.3581L27.7942 12.3568Z"
+                           fill="#F1C644" />
+                       </svg>
+                       <p style="font-size: 15px; font-weight: 500; margin-top: 3px;">4.5</p>
+                     </div>
+                     <p style="font-size: 21px; font-weight: 700;">Rp 17.000</p>
+                   </div>
+                 </div>
+               </div>
+             </a>
+             <!-- isi card -->
+           </div>
+           <div class="col-lg-3 col-md-6 shadow-l ms-2 me-5">
+             <!-- isi konten -->
+             <a href="https://youtu.be/dQw4w9WgXcQ?si=_kdNmnd9u4pj1LmM" style="text-decoration: none;"
+               class="text-dark">
+               <div class="d-flex justify-content-center">
+                 <div class="d-flex justify-content-center">
+                   <div class="menusq">
+                     <img src="assets/img/bihun rebus.png" alt="image" style="width: 210px; height: 210px;">
+                     <h2 style="color: #FFF8EF; font-size: 30px;">Bihun Rebus</h2>
+                     <p
+                       style="text-align: center; font-size: 13px; color: #FFF8EF; margin-left: 10px; margin-right: 10px;">
+                       Bihun rebus dengan telur,
+                       ayam, baso, sawi, dan kol. Sajian lezat dan bergizi untuk dinikmati kapan saja.</p>
+                     <div class="d-flex justify-content-center text-center" style="gap: 4px;">
+                       <svg xmlns="http://www.w3.org/2000/svg" width="29" height="27" viewBox="0 0 29 27" fill="none">
+                         <path
+                           d="M27.7942 12.3568L22.166 17.2113L23.8807 24.4713C23.9753 24.8654 23.951 25.2787 23.8107 25.6589C23.6704 
+                     26.0392 23.4206 26.3694 23.0927 26.6078C22.7648 26.8462 22.3735 26.9821 21.9684 26.9984C21.5633 27.0146 21.1624 26.9105 
+                     20.8164 26.6991L14.5003 22.8135L8.18033 26.6991C7.83441 26.9093 7.43402 27.0124 7.02958 26.9955C6.62514 26.9787 6.23473 26.8426 
+                     5.90751 26.6044C5.58029 26.3662 5.33089 26.0366 5.19072 25.657C5.05055 25.2774 5.02587 24.8648 5.1198 24.4713L6.8408 17.2113L1.21252 
+                     12.3568C0.906468 12.0924 0.685123 11.7437 0.576132 11.3543C0.467141 10.9649 0.475333 10.5521 0.599686 10.1673C0.72404 9.78252 0.959043 
+                     9.44289 1.27535 9.19083C1.59165 8.93876 1.97524 8.78543 2.3782 8.74998L9.75749 8.15488L12.6041 1.26878C12.7582 0.893491 13.0205 0.572479 
+                     13.3575 0.346555C13.6946 0.12063 14.0913 0 14.4971 0C14.903 0 15.2996 0.12063 15.6367 0.346555C15.9738 0.572479 16.236 0.893491 16.3901 
+                     1.26878L19.2355 8.15488L26.6148 8.74998C27.0186 8.78411 27.4033 8.93659 27.7207 9.18831C28.0382 9.44002 28.2743 9.77979 28.3994 10.165C28.5245 
+                     10.5503 28.5331 10.9638 28.4241 11.354C28.3152 11.7441 28.0934 12.0934 27.7867 12.3581L27.7942 12.3568Z"
+                           fill="#F1C644" />
+                       </svg>
+                       <p style="font-size: 15px; font-weight: 500; margin-top: 3px;">4.5</p>
+                     </div>
+                     <p style="font-size: 21px; font-weight: 700;">Rp 17.000</p>
+                   </div>
+                 </div>
+               </div>
+             </a>
+             <!-- isi card -->
+           </div>
          </div>
        </div>
+       <!-- Carousel -->
+
        <div class="row d-flex justify-content-center">
          <div class="col-3 segimenu">
            <div>
@@ -609,6 +596,53 @@
      crossorigin="anonymous">
    </script>
    <!-- Jquery -->
+
+   <!-- Script -->
+   <script>
+     const container = document.querySelector('.kontener-gambar');
+     let isDragging = false;
+     let startPosition = 0;
+     let deltaX = 0;
+
+     container.addEventListener('wheel', (event) => {
+
+       container.scrollLeft += event.deltaY;
+       event.preventDefault();
+     });
+     // Add event listeners for mouse down, move, and up
+     container.addEventListener('mousedown', startDrag);
+     container.addEventListener('mousemove', drag);
+     container.addEventListener('mouseup', endDrag);
+
+     // Function to start dragging
+     function startDrag(event) {
+       isDragging = true;
+       startPosition = event.clientX - container.offsetLeft;
+       container.classList.add('dragging');
+     }
+
+     // Function to handle dragging
+     function drag(event) {
+       if (!isDragging) return;
+       event.preventDefault();
+       const currentPosition = event.clientX - container.offsetLeft;
+       deltaX = startPosition - currentPosition;
+       container.scrollLeft += deltaX;
+       startPosition = currentPosition;
+     }
+
+     // Function to end dragging
+     function endDrag(event) {
+       isDragging = false;
+       container.classList.remove('dragging');
+     }
+
+     // Prevent text selection while dragging
+     container.addEventListener('selectstart', function (e) {
+       e.preventDefault();
+     });
+   </script>
+   <!-- Script -->
  </body>
 
  </html>

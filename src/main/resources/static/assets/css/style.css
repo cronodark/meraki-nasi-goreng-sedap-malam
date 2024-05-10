@@ -76,20 +76,6 @@ p{
     font-family: Poppins;
     font-variant: Regular;
 }
-.menusq{
-    background-color: #E53A30;
-    height: 436px;
-    width: 304px;
-    border-radius: 33px;
-    box-shadow: 20px 20px 40px 0px rgba(0, 0, 0, 0.20);
-}
-.menusq2{
-    background-color: #567C4F;
-    height: 436px;
-    width: 304px;
-    border-radius: 33px;
-    box-shadow: 20px 20px 40px 0px rgba(0, 0, 0, 0.20);
-}
 
 .image_menu{
     margin-left: 47px;
@@ -198,7 +184,7 @@ p{
   position: absolute;
   z-index: 1;
   right: 10%;
-  top: 120%;
+  top: 119%;
 }
 
 .segikontak{
@@ -238,7 +224,6 @@ p{
   box-shadow: 20px -20px 40px 0px rgba(0, 0, 0, 0.08);
 }
 /*Menu*/
-
 .menu-content{
     font-size: 16px;
     color: #FFFFFF;
@@ -251,3 +236,54 @@ p{
     text-align: end;
 
 }
+
+/* carousel */
+.sewa .status-kamar {
+  font-size: 60px;
+}
+
+.sewa .landing-page {
+  background-image: url("images/sewa-bg.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.sewa .landing-page .status-kamar {
+  padding-top: 50px;
+}
+
+.sewa .card {
+  border-color: #2f3c1f;
+}
+.sewa .kontener-gambar {
+  flex-wrap: nowrap !important;
+  overflow-x: auto;
+  overflow-y: scroll;
+  white-space: nowrap;
+}
+
+.menusq{
+  border-radius: 33px;
+  background: #E53A30;
+  box-shadow: 20px 20px 40px 0px rgba(0, 0, 0, 0.20);
+  height: 436px;
+  width: 304px;
+  text-wrap: wrap;
+}
+
+.menusq2{
+  border-radius: 33px;
+  background: #567C4F;
+  box-shadow: 20px 20px 40px 0px rgba(0, 0, 0, 0.20);
+  height: 436px;
+  width: 304px;
+  text-wrap: wrap;
+}
+/* carousel */
+
+/* button */
+.btn{
+  height: 40px;
+}
+/* button */
