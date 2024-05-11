@@ -78,31 +78,29 @@ public class AdminController {
         MenuDto menu = menuService.findMenuById(idMenu);
 
         model.addAttribute("menu", menu);
-
-
+        System.out.println("Menu yang diedit: " +  menu);
         return "menu-edit";
     }
 
     @PostMapping("/menu/{menuId}/edit")
     public String updateMenu(@PathVariable("menuId") int menuId, @ModelAttribute("menu") MenuDto menu , @RequestParam("newPhoto") MultipartFile newPhoto) throws IOException {
 
-        MenuDto existingMenu = menuService.findMenuById(menuId);
-
-        // Delete the old photo if it exists
-        if (existingMenu != null && existingMenu.getPhotoUrl() != null) {
-            String oldPhotoUrl = existingMenu.getPhotoUrl();
-            String oldPhotoPath = "src/main/resources/static/images/menu/" + menuId + "/" + oldPhotoUrl;
-            Path oldPhotoFilePath = Paths.get(oldPhotoPath);
-
-            try {
-                Files.deleteIfExists(oldPhotoFilePath);
-            } catch (IOException e) {
-                // Handle deletion failure if needed
-                e.printStackTrace();
-            }
-        }
-
         if (!newPhoto.isEmpty()){
+            MenuDto existingMenu = menuService.findMenuById(menuId);
+            // Delete the old photo if it exists
+            if (existingMenu != null && existingMenu.getPhotoUrl() != null) {
+                String oldPhotoUrl = existingMenu.getPhotoUrl();
+                String oldPhotoPath = "src/main/resources/static/images/menu/" + menuId + "/" + oldPhotoUrl;
+                Path oldPhotoFilePath = Paths.get(oldPhotoPath);
+
+                try {
+                    Files.deleteIfExists(oldPhotoFilePath);
+                } catch (IOException e) {
+                    // Handle deletion failure if needed
+                    e.printStackTrace();
+                }
+            }
+
             menu.setPhotoUrl(newPhoto.getOriginalFilename());
 
             String uploadDir = "src/main/resources/static/images/menu/" + menu.getId();
