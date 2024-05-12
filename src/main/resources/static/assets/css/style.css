@@ -304,7 +304,7 @@ p{
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vb;
+  min-height: 100vh;
 }
 
 .form-group input{
@@ -341,4 +341,48 @@ p{
   align-items: center; 
   border: none;
   font-family: Poppins; 
+}
+/* Login */
+
+/* Register */
+.bodyregis{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.segiregis{
+  width: 400px;
+  height: 480px;
+  border-radius: 15px;
+  background: rgba(255, 248, 239, 0.10);
+  box-shadow: 20px 20px 40px 0px rgba(0, 0, 0, 0.10), 37.167px -37.167px 37.167px 0px rgba(194, 188, 182, 0.10) inset, -37.167px 37.167px 37.167px 0px rgba(255, 255, 255, 0.10) inset;
+  backdrop-filter: blur(37.16666793823242px);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.regisbtn button{
+  outline: none;
+  border-radius: 50px;
+  background: #E53A30;
+  display: flex;
+  width: 108px;
+  height: 38px;
+  justify-content: center;
+  align-items: center; 
+  border: none;
+  font-family: Poppins; 
+}
+
+.regisbtn{
+  justify-content: center;
+  display: flex;
+}
+
+.segiregis .form-group{
+  height: 50%;
+  margin: 30px;
 }

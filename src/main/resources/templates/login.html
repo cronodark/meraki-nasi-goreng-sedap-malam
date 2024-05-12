@@ -18,12 +18,6 @@
 </head>
 
 <body class="bodylogin" style="background-image: url('assets/img/background.png');">
-    <div th:if="${param.error}">
-        Username atau password salah
-    </div>
-    <div th:if="${param.logout}">
-        Anda telah logout!
-    </div>
     <!-- Form -->
     <div class="container align-content-center">
         <div class="row justify-content-center">
@@ -58,6 +52,16 @@
                             </a>
                         </p>
                     </div>
+                    <div class="d-flex justify-content-center m-2">
+                        <div th:if="${param.error}">
+                            <p style="color: #E53A30;">
+                                Username atau password salah
+                            </p>
+                        </div>
+                    </div>
+                    <!-- <div th:if="${param.logout}">
+                        Anda telah logout!
+                    </div> -->
                 </form>
             </div>
         </div>
