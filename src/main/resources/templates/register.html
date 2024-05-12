@@ -1,49 +1,74 @@
 <!DOCTYPE html>
-<html
-        xmlns:th="http://thymeleaf.org">
+<html xmlns:th="http://thymeleaf.org">
+
 <head>
     <title>Register</title>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <!-- CSS -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<body>
-<div class="main">
-    <div class="col-md-6 col-sm-12">
-        <div th:if="${param.fail}" class="alert alert-success">
-            Username or email already exists</div>
-        <div class="login-form">
-            <form method="post" role="form" th:action="@{/register}" th:object="${user}">
-                <div class="form-group">
-                    <label>Username</label>
-                    <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Username"
-                            th:field="*{username}">
+
+<body class="bodyregis" style="background-image: url('assets/img/background.png');">
+    <div class="container align-content-center">
+        <div class="row justify-content-center">
+            <div class="col-md-5 segiregis">
+                <div th:if="${param.fail}" class="alert alert-success">
+                    Username or email already exists
                 </div>
-                <p th:if="${#fields.hasErrors('username')}" class="text-danger"></p>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Email"
-                            th:field="*{email}">
+                <div class="login-form">
+                    <form method="post" role="form" th:action="@{/register}" th:object="${user}">
+                        <div class="d-flex justify-content-center align-items-center gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 91 91"
+                                fill="none">
+                                <path
+                                    d="M45.5 0C20.3649 0 0 20.3649 0 45.5C0 70.6351 20.3649 91 45.5 91C70.6351 91 91 70.6351 91 45.5C91 20.3649 70.6351 0 45.5 0ZM45.5 17.6129C54.4165 17.6129 61.6452 24.8415 61.6452 33.7581C61.6452 42.6746 54.4165 49.9032 45.5 49.9032C36.5835 49.9032 29.3548 42.6746 29.3548 33.7581C29.3548 24.8415 36.5835 17.6129 45.5 17.6129ZM45.5 80.7258C34.7304 80.7258 25.08 75.8456 18.622 68.2133C22.0712 61.7185 28.8228 57.2419 36.6936 57.2419C37.1339 57.2419 37.5742 57.3153 37.9962 57.4438C40.3813 58.2143 42.8764 58.7097 45.5 58.7097C48.1236 58.7097 50.6371 58.2143 53.0038 57.4438C53.4258 57.3153 53.8661 57.2419 54.3065 57.2419C62.1772 57.2419 68.9288 61.7185 72.378 68.2133C65.92 75.8456 56.2696 80.7258 45.5 80.7258Z"
+                                    fill="#E53A30" />
+                            </svg>
+                            <p style="font-size: 30px; font-weight: 500; color: #E53A30; margin: 0px;">Sign Up</p>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Username" th:field="*{username}">
+                        </div>
+                        <p th:if="${#fields.hasErrors('username')}" class="text-danger"></p>
+                        <div class="form-group">
+                                <input
+                                        type="password"
+                                        class="form-control"
+                                        placeholder="Password"
+                                        th:field="*{password}">
+                        </div>
+                            <p th:if="${#fields.hasErrors('password')}" class="text-danger"></p>
+                        <div class="form-group">
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Email"
+                                        th:field="*{email}">
+                        </div>
+                            <p th:if="${#fields.hasErrors('email')}" class="text-danger"></p>
+                        <div class="regisbtn">
+                                <button th:href="@{/register}" type="submit" class="btn btn-success">Register</button>
+                        </div>
+                        <div class="d-flex justify-content-center m-2">
+                            <p>
+                                <a th:href="@{/login}" type="submit" style="text-decoration: none; font-weight: 600;"
+                                class="text-dark">Login here.</a>
+                            </p>
+                        </div>  
+                    </form>
                 </div>
-                <p th:if="${#fields.hasErrors('email')}" class="text-danger"></p>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input
-                            type="password"
-                            class="form-control"
-                            placeholder="Password"
-                            th:field="*{password}">
-                </div>
-                <p th:if="${#fields.hasErrors('password')}" class="text-danger"></p>
-                <a th:href="@{/login}" type="submit" class="btn btn-black">Login here.</a>
-                <button th:href="@{/register}" type="submit" class="btn btn-secondary">Register</button>
-            </form>
-        </div>
-    </div>
-</div>
+            </div>
+        </div>    
+    </div>    
 </body>
 
 </html>
