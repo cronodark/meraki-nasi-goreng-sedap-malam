@@ -543,3 +543,7 @@ p{
   justify-content: center;
   display: flex;
 }
+
+.ms-6{
+  margin-left: 3.5rem !important;
+}
