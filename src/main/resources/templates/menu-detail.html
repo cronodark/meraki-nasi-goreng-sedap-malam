@@ -100,32 +100,58 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-3 col-md-6 d-flex justify-content-center">
                                 <div class="stars">
-                                    <form role="form" method="post" id="ratingForm" th:action="@{/rating}"
-                                        th:object="${rating}">
-                                        <div class="d-flex justify-content-center">
-                                            <input id="ratingMenuId" name="ratingMenuId" th:field="*{idMenu}"
-                                                type="hidden">
-                                            <input id="ratingValue" name="ratingValue" th:field="*{rating}"
-                                                type="hidden">
-                                            <input class="star star-5" id="star-5" type="radio" name="star"
-                                                   data-value="5" />
-                                            <label class="star star-5" for="star-5"></label>
-                                            <input class="star star-4" id="star-4" type="radio" name="star"
-                                                data-value="4" />
-                                            <label class="star star-4" for="star-4"></label>
-                                            <input class="star star-3" id="star-3" type="radio" name="star"
-                                                data-value="3" />
-                                            <label class="star star-3" for="star-3"></label>
-                                            <input class="star star-2" id="star-2" type="radio" name="star"
-                                                data-value="2" />
-                                            <label class="star star-2" for="star-2"></label>
-                                            <input class="star star-1" id="star-1" type="radio" name="star"
-                                                data-value="1" />
-                                            <label class="star star-1" for="star-1"></label>
-                                        </div>
-                                        <div class="detailmenubtn d-flex justify-content-center">
-                                            <button class="btn btn-success" type="submit" id="saveRating"
-                                                name="saveRating">Kirim</button>
+                                    <form role="form" method="post" id="ratingForm" th:action="@{/rating}" th:object="${rating}">
+<!--                                        <div class="d-flex justify-content-center">-->
+<!--                                            <input id="ratingMenuId" name="ratingMenuId" th:field="*{idMenu}"-->
+<!--                                                type="hidden">-->
+<!--                                            <input id="ratingValue" name="ratingValue" th:field="*{rating}"-->
+<!--                                                type="hidden">-->
+<!--                                            <input class="star star-5" id="star-5" type="radio" name="star"-->
+<!--                                                   data-value="1" />-->
+<!--                                            <label class="star star-5" for="star-5"></label>-->
+<!--                                            <input class="star star-4" id="star-4" type="radio" name="star"-->
+<!--                                                data-value="4" />-->
+<!--                                            <label class="star star-4" for="star-4"></label>-->
+<!--                                            <input class="star star-3" id="star-3" type="radio" name="star"-->
+<!--                                                data-value="3" />-->
+<!--                                            <label class="star star-3" for="star-3"></label>-->
+<!--                                            <input class="star star-2" id="star-2" type="radio" name="star"-->
+<!--                                                data-value="2" />-->
+<!--                                            <label class="star star-2" for="star-2"></label>-->
+<!--                                            <input class="star star-1" id="star-1" type="radio" name="star"-->
+<!--                                                data-value="1" />-->
+<!--                                            <label class="star star-1" for="star-1"></label>-->
+<!--                                        </div>-->
+<!--                                        <div class="detailmenubtn d-flex justify-content-center">-->
+<!--                                            <button class="btn btn-success" type="submit" id="saveRating"-->
+<!--                                                name="saveRating">Kirim</button>-->
+<!--                                        </div>-->
+                                        <div class="container d-flex justify-content-center">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="stars">
+                                                        <form role="form" method="post" id="ratingForm" th:action="@{/rating}" th:object="${rating}">
+                                                            <div class="">
+                                                                <input id="ratingMenuId" name="ratingMenuId" th:field="*{idMenu}" type="hidden">
+                                                                <input id="ratingValue" name="ratingValue" th:field="*{rating}" type="hidden">
+                                                                <input class="star star-5" id="star-5" type="radio" name="star" data-value="5"/>
+                                                                <label class="star star-5" for="star-5"></label>
+                                                                <input class="star star-4" id="star-4" type="radio" name="star" data-value="4"/>
+                                                                <label class="star star-4" for="star-4"></label>
+                                                                <input class="star star-3" id="star-3" type="radio" name="star" data-value="3"/>
+                                                                <label class="star star-3" for="star-3"></label>
+                                                                <input class="star star-2" id="star-2" type="radio" name="star" data-value="2"/>
+                                                                <label class="star star-2" for="star-2"></label>
+                                                                <input class="star star-1" id="star-1" type="radio" name="star" data-value="1"/>
+                                                                <label class="star star-1" for="star-1"></label>
+                                                            </div>
+                                                            <div class="detailmenubtn text-center">
+                                                                <button class="btn btn-success ms-6" type="submit" id="saveRating" name="saveRating">Kirim</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
