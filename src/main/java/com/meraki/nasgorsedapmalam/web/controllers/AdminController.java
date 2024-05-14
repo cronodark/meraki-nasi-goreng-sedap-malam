@@ -120,7 +120,7 @@ public class AdminController {
         }
         menu.setId(menuId);
         menuService.updateMenu(menu);
-        return "redirect:/";
+        return "redirect:/menu";
     }
 
 //    delete menu
@@ -132,7 +132,7 @@ public class AdminController {
 
         deleteDirectory(deletedDir);
 
-        return "redirect:/";
+        return "redirect:/menu";
     }
 
     private void deleteDirectory(String directoryPath) {
