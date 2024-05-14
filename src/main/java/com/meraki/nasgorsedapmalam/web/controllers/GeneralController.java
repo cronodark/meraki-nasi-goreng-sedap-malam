@@ -5,7 +5,9 @@ import java.util.List;
 
 import com.meraki.nasgorsedapmalam.web.dto.RatingDto;
 import com.meraki.nasgorsedapmalam.web.models.Rating;
+import com.meraki.nasgorsedapmalam.web.models.UserEntity;
 import com.meraki.nasgorsedapmalam.web.services.RatingService;
+import com.meraki.nasgorsedapmalam.web.services.UserService;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
@@ -23,10 +25,12 @@ public class GeneralController {
 
     private MenuService menuService;
     private RatingService ratingService;
+    private UserService userService;
 
-    public GeneralController(MenuService menuService, RatingService ratingservice) {
+    public GeneralController(MenuService menuService, RatingService ratingservice, UserService userService) {
         this.menuService = menuService;
         this.ratingService = ratingservice;
+        this.userService = userService;
     }
 
     @GetMapping("/")
@@ -47,11 +51,22 @@ public class GeneralController {
     //    detail menu
     @GetMapping("/menu/{menuId}")
     public String menuDetail(@PathVariable("menuId") int menuId, Model model){
-        MenuDto menuDto = menuService.findMenuById(menuId);
+        MenuDto menuDto = menuService.findMenuByIdWithRatings(menuId);
         Rating rating = new Rating();
+        Rating rated = null;
+
+        Authentication authed = SecurityContextHolder.getContext().getAuthentication();
+        UserEntity currentUser = userService.findByUsername(authed.getName());
+
+        if (currentUser!= null){
+            rated = ratingService.findByIdMenuAndIdUser(menuId, currentUser.getId());
+            System.out.println("log rated: " + rated);
+        }
+
 
         model.addAttribute("menu", menuDto);
         model.addAttribute("rating", rating);
+        model.addAttribute("rated", rated);
 
         return "menu-detail";
     }

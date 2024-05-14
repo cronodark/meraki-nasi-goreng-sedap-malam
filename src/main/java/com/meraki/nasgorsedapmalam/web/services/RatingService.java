@@ -8,4 +8,7 @@ import java.util.List;
 public interface RatingService {
     List<Rating> findAllRatings();
     Rating addRating(Rating rating);
+    Rating findByIdMenuAndIdUser(int menuId, int userId);
+
+    Rating findRatingByIdUserAndIdMenu(int menuId, int userId);
 }

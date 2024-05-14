@@ -10,6 +10,7 @@ public interface MenuService {
     List<MenuDto> findAllMenusWithRatings();
     Menu saveMenu(Menu menu);
     MenuDto findMenuById(int menuId);
+    MenuDto findMenuByIdWithRatings(int menuId);
 
     void updateMenu(MenuDto menu);
 
