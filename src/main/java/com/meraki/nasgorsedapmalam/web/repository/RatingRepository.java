@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface RatingRepository extends JpaRepository<Rating, Integer> {
     List<Rating> findByIdMenu(int menuId);
+
+    Rating findByIdMenuAndIdUser(int menuId, int userId);
 }

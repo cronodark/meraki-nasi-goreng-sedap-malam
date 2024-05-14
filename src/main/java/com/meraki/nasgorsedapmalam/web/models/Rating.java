@@ -1,6 +1,9 @@
 package com.meraki.nasgorsedapmalam.web.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,6 +25,8 @@ public class Rating {
     private int id;
     private int idMenu;
     private int idUser;
+    @Min(1)
+    @Max(5)
     private int rating;
     @CreationTimestamp
     private LocalDateTime createdOn;

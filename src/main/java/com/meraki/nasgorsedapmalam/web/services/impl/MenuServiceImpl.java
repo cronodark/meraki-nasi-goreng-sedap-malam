@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -71,6 +73,38 @@ public class MenuServiceImpl implements MenuService { //implementasi dari servic
     }
 
     @Override
+    public MenuDto findMenuByIdWithRatings(int menuId) {
+        Menu menu = menuRepository.findById(menuId).get();
+
+        NumberFormat formatter = new DecimalFormat("#0.00");
+
+        List<Rating> ratings = ratingRepository.findByIdMenu(menuId);
+        double ratingValue = 0.0;
+        int ratingCount = 0;
+
+        if (ratings.size() > 0 || ratings != null) {
+            for (Rating rating : ratings) {
+                ratingValue += rating.getRating();
+            }
+            ratingCount = ratings.size();
+            ratingValue = ratingValue / ratingCount;
+        }
+        else{
+            ratingValue = 0;
+            ratingCount = 0;
+        }
+
+
+        MenuDto menuDto = mapToMenuDto(menu);
+        menuDto.setRatingValue(ratingValue);
+        menuDto.setRatingCount(ratingCount);
+
+        System.out.println("rating: " + menuDto);
+
+        return menuDto;
+    }
+
+    @Override
     public void updateMenu(MenuDto menuDto) {
         Menu menu = mapToMenu(menuDto);
         menuRepository.save(menu);
@@ -102,6 +136,8 @@ public class MenuServiceImpl implements MenuService { //implementasi dari servic
                 .photoUrl(menu.getPhotoUrl())
                 .harga(menu.getHarga())
                 .deskripsi(menu.getDeskripsi())
+                .ratingValue(0)
+                .ratingCount(0)
                 .createdOn(menu.getCreatedOn())
                 .updatedOn(menu.getUpdatedOn())
                 .build();

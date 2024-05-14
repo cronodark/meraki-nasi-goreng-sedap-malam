@@ -34,6 +34,7 @@ public class MemberController {
         rating.setIdUser(currentUser.getId());
 
         ratingService.addRating(rating);
+        System.out.println("logging rating post" +   rating);
 
         return "redirect:/menu/"+rating.getIdMenu();
     }

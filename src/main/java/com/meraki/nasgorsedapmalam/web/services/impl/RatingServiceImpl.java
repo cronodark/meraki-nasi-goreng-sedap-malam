@@ -1,6 +1,5 @@
 package com.meraki.nasgorsedapmalam.web.services.impl;
 
-import com.meraki.nasgorsedapmalam.web.dto.RatingDto;
 import com.meraki.nasgorsedapmalam.web.models.Rating;
 import com.meraki.nasgorsedapmalam.web.repository.RatingRepository;
 import com.meraki.nasgorsedapmalam.web.services.RatingService;
@@ -26,6 +25,17 @@ public class RatingServiceImpl implements RatingService {
 
     @Override
     public Rating addRating(Rating rating) {
+
         return ratingRepository.save(rating);
+    }
+
+    @Override
+    public Rating findByIdMenuAndIdUser(int menuId, int userId) {
+        return ratingRepository.findByIdMenuAndIdUser(menuId, userId);
+    }
+
+    @Override
+    public Rating findRatingByIdUserAndIdMenu(int menuId, int userId) {
+        return ratingRepository.findByIdMenuAndIdUser(menuId, userId);
     }
 }

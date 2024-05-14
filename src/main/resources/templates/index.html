@@ -182,7 +182,7 @@
                            fill="#F1C644" />
                        </svg>
                        <p style="font-size: 15px; font-weight: 500; margin-top: 3px;"
-                         th:text="${menu.ratingValue}  + ' (' + ${menu.ratingCount} + ')'"></p>
+                          th:text="${#numbers.formatDecimal(menu.ratingValue, 1, 'COMMA', 1, 'POINT')} + ' (' + ${menu.ratingCount} + ')'"></p>
                      </div>
                      <p style="font-size: 21px; font-weight: 700;" th:text="'Rp. ' + ${menu.harga}"></p>
                    </div>
