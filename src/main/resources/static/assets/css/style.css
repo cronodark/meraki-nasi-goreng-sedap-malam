@@ -24,7 +24,7 @@ body {
 h1 {
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #567C4F;
-     color:transparent;
+     color: transparent !important;
      font-size: 64px;
      text-transform: uppercase;
   }
@@ -219,7 +219,7 @@ p{
 }
 
 .footers{
-  height: 281px;
+  height: 180px;
   flex-shrink: 0;
 
   border-radius: 50px 50px 0px 0px;
@@ -287,7 +287,7 @@ p{
 
 /* button */
 .btn{
-  height: 40px;
+  width: 98px;
 }
 /* button */
 
@@ -546,4 +546,98 @@ p{
 
 .ms-6{
   margin-left: 3.5rem !important;
+}
+
+.fontfooter{
+  margin: 0;
+  font-weight: 300;
+  font-size: 14px;
+  text-align: start;
+}
+
+.whatsapp{
+  justify-content: end;
+  display: flex;
+  margin: 20px;
+}
+
+.shadowwa{
+  box-shadow: 20px 20px 40px 0px rgba(0, 0, 0, 0.20);
+}
+
+/* navbar */
+
+.login-button{
+  background-color: #E0B152;
+  color: #FFF8EF;
+  font-size: 14px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.3s background-color;
+  width: 88px;
+  height: 38px;
+  justify-content: center;
+  align-items: center;
+  font-family: Poppins;
+  display: flex; 
+}
+
+.login-button:hover{
+  background-color: #567C4F;
+}
+
+.navbar-toggler{
+  border: none;
+  font-size: 1.25rem;
+}
+
+.navbar-toggler:focus, .btn-close:focus{
+box-shadow: none;
+outline: none;
+}
+
+a.nav-link{
+  color: #FFF8EF;
+  font-weight: 500;
+  font: Poppins;
+  position: relative;
+}
+
+a.nav-link:hover, .nav-link:active{
+  color: black;
+}
+
+@media (min-width: 990px){
+  a.nav-link::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 0;
+    background-color: #E0B152;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+  }
+
+  a.nav-link:hover::before, .nav-link.active::before{
+    width: 100%;
+    visibility: visible;
+  }
+}
+
+button.navbar-toggler{
+  border: none;
+  font-size: 1.25rem;
+}
+
+/* scroll */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--black-color);
+  border-radius: 10px;
 }
