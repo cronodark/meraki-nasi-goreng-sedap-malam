@@ -22,8 +22,8 @@
         style="background-color: #567C4F; height: 60px;">
         <div class=" container">
             <div>
-                <a th:href="@{/#menu}" style="text-decoration: none;" class="listbtn">
-                    <button type="submit" class="btn btn-success d-flex align-items-center justify-content-center"><svg
+                <a th:href="@{/#menu}" style="text-decoration: none;" class="backbutton">
+                    <button type="submit" class="btn  d-flex align-items-center justify-content-center"><svg
                             xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 67 67" fill="none">
                             <path
                                 d="M52.5892 30.4466H19.7624L29.8097 18.3787C30.2795 17.8135 30.5056 17.0847 30.4381 16.3528C30.3706 15.6209 30.0151 14.9458 29.4499 14.476C28.8847 14.0062 28.1559 13.7802 27.424 13.8476C26.6921 13.9151 26.017 14.2706 25.5472 14.8358L11.7079 31.443C11.6148 31.5751 11.5315 31.7139 11.4588 31.8582C11.4588 31.9966 11.4588 32.0796 11.265 32.218C11.1396 32.5354 11.0739 32.8732 11.0713 33.2144C11.0739 33.5557 11.1396 33.8935 11.265 34.2109C11.265 34.3493 11.265 34.4323 11.4588 34.5707C11.5315 34.715 11.6148 34.8538 11.7079 34.9859L25.5472 51.593C25.8074 51.9055 26.1333 52.1568 26.5017 52.329C26.8701 52.5012 27.2718 52.5901 27.6785 52.5895C28.3252 52.5907 28.9519 52.3655 29.4499 51.9529C29.7302 51.7205 29.9618 51.4351 30.1317 51.1131C30.3015 50.7911 30.4061 50.4387 30.4395 50.0762C30.4729 49.7137 30.4345 49.3481 30.3264 49.0004C30.2184 48.6528 30.0428 48.3299 29.8097 48.0502L19.7624 35.9823H52.5892C53.3233 35.9823 54.0273 35.6907 54.5464 35.1716C55.0655 34.6525 55.3571 33.9485 55.3571 33.2144C55.3571 32.4804 55.0655 31.7763 54.5464 31.2573C54.0273 30.7382 53.3233 30.4466 52.5892 30.4466Z"
@@ -36,7 +36,7 @@
                 <p style="font-size: 25px; font-weight: 500; color: #E0B152; margin: 0px;">List Menu</p>
             </div>
             <div>
-                <div sec:authorize="hasRole('ADMIN')" class="listbtn">
+                <div sec:authorize="hasRole('ADMIN')" class="tambah-button">
                     <a th:href="@{/tambah-menu}" style="text-decoration: none;">
                         <button type="submit" class="btn btn-success">Tambah menu</button>
                     </a>
