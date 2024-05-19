@@ -90,17 +90,35 @@
             </div>
         </div>
     </div>
-
-
-    <!-- <div th:each="menu : ${menus}">
-        <p th:text="${menu.nama}"></p>
-        <p th:text="${menu.deskripsi}"></p>
-        <p th:text="${menu.harga}"></p>
-        <a th:href="@{/menu/{menuId}(menuId=${menu.id})}"><img
-                th:src="@{/images/menu/{menuId}/{photoUrl}(menuId=${menu.id}, photoUrl=${menu.photoUrl})}"
-                alt="no-pict"></a>
-    </div> -->
-
+    <div class="footers d-flex">
+        <div class="mx-auto mt-2">
+            <div class="d-flex gap-1">
+                <img th:src="@{assets/img/LOGO FIX.png}" alt="logo" width="69px" height="55">
+                <p class="m-0 d-flex align-items-center" style="font-weight: 500;">Nasi Goreng Sedap Malam Jembatan</p>
+                </img>
+            </div>
+            <p class="fontfooter">
+                Jl. Utan Jaya RT05 RW04, Cipayung <br>
+                Depok 16438
+            </p>
+        </div>
+        <div class="mx-auto mt-2" >
+            <p class="m-0" style="font-weight: 500;font-weight: 500; text-align: start;">KONTEN</p>
+            <p class="fontfooter">Home</p>
+            <p class="fontfooter">Menu</p>
+            <p class="fontfooter">Galeri</p>
+            <p class="fontfooter">Tentang</p>
+            <p class="fontfooter">Kontak</p>
+        </div>
+        <div class="mx-auto mt-2">
+            <p class="m-0" style="font-weight: 500; text-align: start;">Legal</p>
+            <p class="fontfooter">Terms of use</p>
+            <p class="fontfooter">License agreement</p>
+            <p class="fontfooter">Copyright information</p>
+            <p class="fontfooter">Cookies policy</p>
+        </div>
+    </div>
+    </section>
 </body>
 
 </html>
