@@ -86,16 +86,9 @@
                         <a th:href="@{/menu/{menuId}/delete(menuId=${menu.id})}"
                             style="text-decoration: none; font-weight: 600;">
                             <div class="delete-button">
-                                <button class="btn btn-success">Delete</button>
+                                <button class="btn btn-success" onclick="return confirmDelete()">Delete</button>
                             </div>
                         </a>
-
-                        <div class="menudetailbtn">
-                            <form method="get" th:action="@{/menu/{menuId}/delete(menuId=${menu.id})}" id="deleteForm">
-                                <button type="submit" class="btn btn-success" onclick="return confirmDelete()">Delete</button>
-                            </form>
-                        </div>
-
                     </div>
                 </div>
             </div>

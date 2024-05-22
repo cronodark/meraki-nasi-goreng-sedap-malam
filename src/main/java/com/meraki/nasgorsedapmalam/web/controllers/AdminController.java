@@ -78,7 +78,6 @@ public class AdminController {
         MenuDto menu = menuService.findMenuById(idMenu);
 
         model.addAttribute("menu", menu);
-        System.out.println("Menu yang diedit: " +  menu);
         return "menu-edit";
     }
 
@@ -96,7 +95,6 @@ public class AdminController {
                 try {
                     Files.deleteIfExists(oldPhotoFilePath);
                 } catch (IOException e) {
-                    // Handle deletion failure if needed
                     e.printStackTrace();
                 }
             }
